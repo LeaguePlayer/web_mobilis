@@ -98,7 +98,7 @@ class SiteHelper {
 	public static function russianDate($datetime = null) {
         if ($datetime == 0)
             return '';
-            
+
 		if (is_numeric($datetime) ) {
 			$timestamp = $datetime;
 		} else if (is_string($datetime)) {
@@ -107,7 +107,9 @@ class SiteHelper {
 			$timestamp = time();
 		}
 		$date = explode(".", date("d.m.Y", $timestamp));
+
 		$m = self::russianMonth($date[1]);
+		//var_dump($date[0] . '&nbsp;' . $m . '&nbsp;' . $date[2]); die();
 		return $date[0] . '&nbsp;' . $m . '&nbsp;' . $date[2];
 	}
 
