@@ -1,0 +1,90 @@
+.gallery {
+
+    /*width: 940px;*/
+    width: 100%;
+    position: relative;
+}
+
+.gallery .text {
+    margin-bottom: 20px;
+}
+
+.gallery .list {
+    background-color: #a1a18e;
+    padding: 8px 5px;
+}
+    
+.gallery .list .prev, .gallery .list .next {
+    width: 50px;
+    height: 70px;
+    cursor: pointer;
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+.gallery .list .prev {
+    background: transparent url("http://www.mobilisu.ru/templates/gallery_page/images/l.gif") center center no-repeat;
+    float: left;
+}
+
+.gallery .list .next {
+    background: transparent url("http://www.mobilisu.ru/templates/gallery_page/images/r.gif") center center no-repeat;
+    float: right;
+}
+
+.gallery .list .scrollable {
+    height: 74px;
+
+    position:relative;
+	overflow:hidden;
+}
+
+.gallery .list .items {
+    letter-spacing: -0.35em;
+    
+    overflow: hidden;
+    white-space: nowrap;
+    width:20000em;
+	position:absolute;
+}
+
+.gallery .list .items div {
+    float: left;
+}
+
+.gallery .list .items a {
+    margin: 0 1px;
+    padding: 4px;
+    float: left;
+}
+
+.gallery .list .items img {
+    position: relative;
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+.gallery .list .items a.selected {
+    background-color: #fff;
+}
+
+.gallery .image {
+    position: relative;
+    height: 480px;
+    overflow: hidden;
+}
+
+.gallery .image img {
+    position: absolute;
+}
+
+.gallery .title {
+    color: #787878;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 20px;
+}

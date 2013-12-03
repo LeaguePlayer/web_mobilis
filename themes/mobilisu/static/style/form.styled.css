@@ -1,0 +1,54 @@
+form.styled {
+  width: 400px;
+  padding: 20px;
+  background-color: #ddd;
+}
+  
+  form.styled h2 {
+    margin-bottom: 20px;
+  }
+  
+  form.styled fieldset {
+    margin-bottom: 10px;
+  }
+    
+    form.styled fieldset label { 
+      float: left;
+      width: 120px;
+    }
+
+    form.styled fieldset .input-text, 
+    form.styled fieldset textarea, 
+    form.styled fieldset select {
+      width: 270px;
+      border: 1px solid #aaa;
+    }
+    
+    form.styled fieldset .input-text {
+      height: 20px;
+      line-height: 20px;
+    }
+    
+    form.styled fieldset textarea {
+      height: 100px;
+    }
+
+  form.styled fieldset.secure-image-input input {
+    width: 150px !important;
+  }
+
+  form.styled fieldset.buttons {
+    padding-top: 10px;
+    padding-right: 8px;
+    text-align: right;
+  }
+
+    form.styled fieldset.buttons input {
+      padding: 4px;
+    }
+
+  form.styled input.submit {
+    float: right;
+  }
+
+
