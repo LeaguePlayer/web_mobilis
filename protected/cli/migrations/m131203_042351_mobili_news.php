@@ -1,14 +1,14 @@
 <?php
 /**
- * Миграция m130811_142229_settings
+ * Миграция m131203_042351_mobili_news
  *
  * @property string $prefix
  */
  
-class m130811_142229_settings extends CDbMigration
+class m131203_042351_mobili_news extends CDbMigration
 {
     // таблицы к удалению, можно использовать '{{table}}'
-	private $dropped = array('{{settings}}');
+	private $dropped = array('{{mobili_news}}');
  
     public function __construct()
     {
@@ -28,16 +28,23 @@ class m130811_142229_settings extends CDbMigration
     {
         $this->_checkTables();
  
-        $this->createTable('{{settings}}', array(
-			'option' => "string NOT NULL COMMENT 'Параметр'",
-			'value' => "varchar(256) COMMENT 'Значение'",
-			'label' => "string COMMENT 'Название'",
-			'type' => "varchar(20) COMMENT 'Тип поля для ввода'",
-			'ranges' => "text COMMENT 'Возможные значения'",
-			"PRIMARY KEY (`option`)",
+        $this->createTable('{{mobili_news}}', array(
+            'id' => 'pk', // auto increment
+
+			'date' => "date COMMENT 'Дата'",
+			'img_image' => "string COMMENT 'Изображение'",
+            'name' => "string COMMENT 'Имя'",
+            'announce' => "text COMMENT 'Анонс'",
+            'text' => "text COMMENT 'Текст'",
+			'meta_title' => "text COMMENT 'Статус'",
+			'meta_keywords' => "text COMMENT 'Вес для сортировки'",
+            'meta_description' => "text COMMENT 'Дата создания'",
+            'subscribe_sent' => "datetime COMMENT 'subscribe_sent'",
+            'element_id' => "bigint COMMENT 'Ид елемента'"
         ),
         'ENGINE=MyISAM DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci');
     }
+ 
     public function safeDown()
     {
         $this->_checkTables();

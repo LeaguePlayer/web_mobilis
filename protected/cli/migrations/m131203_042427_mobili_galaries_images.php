@@ -1,14 +1,14 @@
 <?php
 /**
- * Миграция m130811_142229_settings
+ * Миграция m131203_042427_mobili_galaries_images
  *
  * @property string $prefix
  */
  
-class m130811_142229_settings extends CDbMigration
+class m131203_042427_mobili_galaries_images extends CDbMigration
 {
     // таблицы к удалению, можно использовать '{{table}}'
-	private $dropped = array('{{settings}}');
+	private $dropped = array('{{mobili_galaries_images}}');
  
     public function __construct()
     {
@@ -28,16 +28,18 @@ class m130811_142229_settings extends CDbMigration
     {
         $this->_checkTables();
  
-        $this->createTable('{{settings}}', array(
-			'option' => "string NOT NULL COMMENT 'Параметр'",
-			'value' => "varchar(256) COMMENT 'Значение'",
-			'label' => "string COMMENT 'Название'",
-			'type' => "varchar(20) COMMENT 'Тип поля для ввода'",
-			'ranges' => "text COMMENT 'Возможные значения'",
-			"PRIMARY KEY (`option`)",
+        $this->createTable('{{mobili_galaries_images}}', array(
+            'id' => 'pk', // auto increment
+
+			'name' => "string COMMENT 'Наименование'",
+			'img_image' => "string COMMENT 'Изображение'",
+			'index' => "bigint COMMENT 'Индекс'",
+            'gallery_id' => "bigint COMMENT 'Галерея'",
+            'elemnet_id' => "bigint COMMENT 'Елемент'",
         ),
         'ENGINE=MyISAM DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci');
     }
+ 
     public function safeDown()
     {
         $this->_checkTables();
