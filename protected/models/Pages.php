@@ -82,8 +82,8 @@ class Pages extends EActiveRecord
 		$criteria->compare('parent_id',$this->parent_id);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('sort',$this->sort);
-		$criteria->compare('create_time',$this->create_time,true);
-		$criteria->compare('update_time',$this->update_time,true);
+		/*$criteria->compare('create_time',$this->create_time,true);
+		$criteria->compare('update_time',$this->update_time,true);*/
         $criteria->order = 'sort';
 
         return new CActiveDataProvider($this, array(
