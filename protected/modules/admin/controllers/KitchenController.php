@@ -1,8 +1,12 @@
 <?
 class KitchenController extends CController
 {	
-	public function ActionIndex()
+	public function actionIndex()
 	{
-		$this->render();
+		$model=Pages::model()->FindByAlias("kitchen");
+		print_r($model);
+		die();
+		
+		
 	}
 }

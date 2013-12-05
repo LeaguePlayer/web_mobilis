@@ -24,8 +24,6 @@ class Pages extends EActiveRecord
     {
         return '{{pages}}';
     }
-
-
     public function rules()
     {
         return array(
@@ -37,15 +35,11 @@ class Pages extends EActiveRecord
             array('id, name, module, alias, meta_title, meta_keywords, meta_description, wswg_body, parent_id, status, sort, create_time, update_time', 'safe', 'on'=>'search'),
         );
     }
-
-
     public function relations()
     {
         return array(
         );
     }
-
-
     public function attributeLabels()
     {
         return array(
@@ -64,10 +58,6 @@ class Pages extends EActiveRecord
             'update_time' => 'Дата последнего редактирования',
         );
     }
-
-
-
-
     public function search()
     {
         $criteria=new CDbCriteria;
@@ -90,16 +80,16 @@ class Pages extends EActiveRecord
             'criteria'=>$criteria,
         ));
     }
-
     public static function model($className=__CLASS__)
     {
         return parent::model($className);
     }
-
     public function translition()
     {
         return 'Страницы';
     }
-
-
+    public static function findByAlias($param)
+    {
+        return self::model()->FindByAttributes(array('alias'=>$param));
+    }
 }

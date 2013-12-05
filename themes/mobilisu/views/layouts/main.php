@@ -5,6 +5,7 @@
 	$cs->registerCssFile($this->getAssetsUrl().'/css/news.css');
 	$cs->registerCssFile($this->getAssetsUrl().'/css/fancybox/jquery.fancybox.css');
 	$cs->registerCssFile($this->getAssetsUrl().'/css/jquery.ui/overcast/jquery-ui-1.10.3.custom.min.css');
+    $cs->registerCssFile($this->getAssetsUrl().'/css/shareCarusel.css');
 	//$cs->registerCssFile($this->getAssetsUrl().'/css/fancybox/jquery.fancybox-buttons.css');
 	
 	$cs->registerCoreScript('jquery');
@@ -16,6 +17,7 @@
 	$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.timepicker.addon.js', CClientScript::POS_END);
 	$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.ui.timepicker.ru.js', CClientScript::POS_END);
 	$cs->registerScriptFile($this->getAssetsUrl().'/js/common.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/JCarusel.JQuery.js', CClientScript::POS_END);
 	$cs->registerScriptFile('//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js', CClientScript::POS_END);
 ?>
 <!DOCTYPE html>
@@ -38,7 +40,15 @@
     </head>
     <body id="homepage">
         <div id="header">
-            <div class="front-header"></div>
+            <div class="front-header">
+                <div class="jCarouselLite">
+                    <?
+                    $this->Widget("application.components.CaruselWidget.CaruselWidget",array('params'=>'qweqweqweqw'));
+                    ?>
+                </div>
+                <div class="rightside"></div>
+                    <div class="leftside"></div>
+            </div>
         </div>
         <div id="menu-1">
             <div class="clearfix">
@@ -78,7 +88,7 @@
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             <td style="width: 25%;" valign="top"><a href="biblio.html">Библиотеки</a> <a href="vann.html">Мебель для ванных комнат</a> <a href="predmet.html">Отдельные предметы</a> <a href="svet.html">Свет</a><a href="biblio.html"></a> <a href="accessories.html">Аксессуары</a> <a href="bar.html">Мебель для баров, кафе, ресторанов</a></td>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td style="width: 25%;" valign="top"><a href="hotel.html">Гостиничная мебель</a> <a href="panels.html">Декоративные панели-буазери</a> <a href="billiard.html">Мебель для бильярдной</a> <a href="door.html">Двери</a><a href="sale.html"><span style="font-size: large;color: #ca0901;">Мебельные туры в Италию</span></a></td>
+                            <td style="width: 25%;" valign="top"><a href="hotel.html">Гостиничная мебель</a> <a href="panels.html">Декоративные панели-буазери</a> <a href="billiard.html">Мебель для бильярдной</a> <a href="door.html">Двери</a><a href="sale.html">Матрасы</a></td>
                         </tr>
                     </tbody>
                 </table>

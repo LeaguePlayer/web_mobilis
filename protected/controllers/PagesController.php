@@ -3,16 +3,12 @@
 class PagesController extends FrontController
 {
 	public $layout='//layouts/simple';
-
-	
 	public function filters()
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
 		);
 	}
-
-	
 	public function accessRules()
 	{
 		return array(
@@ -25,21 +21,26 @@ class PagesController extends FrontController
 			),
 		);
 	}
-
-	
-	public function actionView($id)
+	public function actionView($alias)
 	{
+		$alias=substr($alias,0,strpos($alias,'.'));
+		$model=Pages::model()->find("alias=:alias",array(':alias'=>$alias));
+		$images=MobiliGalariesImages::model()->findAll("element_id=:id",array(':id'=>$model->id));
+		if (isset($images))
 		$this->render('view',array(
-			'model'=>$this->loadModel('Pages', $id),
+			'model'=>$model,
+			'images'=>$images,
+		));else $this->render('view',array(
+			'model'=>$model,
 		));
-	}
-
-	
+	}	
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Pages');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+		$model=Pages::model()->find("alias=:alias",array(':alias'=>"kitchen"));
+		$images=MobiliGalariesImages::model()->findAll("element_id=:id",array(':id'=>$model->id));
+		$this->render('view',array(
+			'model'=>$model,
+			'images'=>$images,
 		));
 	}
 }

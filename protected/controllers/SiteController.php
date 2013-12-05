@@ -31,7 +31,6 @@ class SiteController extends FrontController
 	{
 		$this->render('index');
 	}
-
 	/**
 	 * This is the action to handle external exceptions.
 	 */
