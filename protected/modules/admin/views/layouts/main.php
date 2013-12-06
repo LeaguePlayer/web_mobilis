@@ -17,6 +17,8 @@
 						array('label'=>'Список', 'url'=>"/admin/pages/list"),
 					)),
 				)),
+				array('label'=>'Категории', 'url'=>'/admin/category'),
+				array('label'=>'Товары', 'url'=>'/admin/goods'),
 			);
 		?>
 		<?php $this->widget('bootstrap.widgets.TbNavbar', array(

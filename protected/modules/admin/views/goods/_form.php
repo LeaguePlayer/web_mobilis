@@ -1,0 +1,37 @@
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+	'id'=>'goods-form',
+	'enableAjaxValidation'=>false,
+)); ?>
+
+	<?php echo $form->errorSummary($model); ?>
+
+
+	<?php echo $form->textFieldControlGroup($model,'name',array('class'=>'span8','maxlength'=>255)); ?>
+
+	<div class='control-group'>
+		<?php echo CHtml::activeLabelEx($model, 'wswg_desc'); ?>
+		<?php $this->widget('appext.ckeditor.CKEditorWidget', array('model' => $model, 'attribute' => 'wswg_desc',
+		)); ?>
+		<?php echo $form->error($model, 'wswg_desc'); ?>
+	</div>
+
+	<div class='control-group'>
+		<?php echo CHtml::activeLabelEx($model, 'gllr_gallery_id'); ?>
+		<?php if ($model->galleryBehaviorGallery_id->getGallery() === null) {
+			echo '<p class="help-block">Прежде чем загружать изображения, нужно сохранить текущее состояние</p>';
+		} else {
+			$this->widget('appext.imagesgallery.GalleryManager', array(
+				'gallery' => $model->galleryBehaviorGallery_id->getGallery(),
+				'controllerRoute' => '/admin/gallery',
+			));
+		} ?>
+	</div>
+
+	<?php echo $form->textFieldControlGroup($model,'cat_id',array('class'=>'span8')); ?>
+
+	<?php echo $form->dropDownListControlGroup($model, 'status', Goods::getStatusAliases(), array('class'=>'span8', 'displaySize'=>1)); ?>
+	<div class="form-actions">
+		<?php echo TbHtml::submitButton('Сохранить', array('color' => TbHtml::BUTTON_COLOR_PRIMARY)); ?>        <?php echo TbHtml::linkButton('Отмена', array('url'=>'/admin/goods/list')); ?>
+	</div>
+
+<?php $this->endWidget(); ?>
