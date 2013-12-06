@@ -17,4 +17,17 @@ class PagesController extends AdminController
 		}
 		echo "</pre>";
 	}
+	
+	public function actionSet()
+	{
+		$models=Pages::model()->findAll(array('order'=>'parent_id'));
+		for ($i=1;$i<count($models);$i++)
+		{
+			if ($models[$i-1]->id==$models[$i]->parent_id)
+			{
+				$models[$i]->lvl=$models[$i]->lvl+1;
+				$models[$i]->save();	
+			}
+		}
+	}
 }

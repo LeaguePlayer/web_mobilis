@@ -15,3 +15,5 @@ framework
 protected/yiic.php
 protected/cron.php
 /upload
+/media
+/themes/mobilisu/static

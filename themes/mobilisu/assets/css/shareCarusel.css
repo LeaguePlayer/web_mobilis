@@ -1,33 +1,25 @@
-.front-header .leftside {
-	float:left;
-	top:50%;
-	position:absolute;
-	width:50px;
-	height:50px;
-	border-radius:25px;
-	text-align:center;
-	margin-left:15px;
-	background:url("../img/leftArr.jpg");
-	z-index:20;
-	-webkit-box-shadow: 0 0 4px black;
--moz-box-shadow: 0 0 4px black;
-box-shadow: 0 0 4px black;
+.front-header .rightside {
+position: absolute;
+top: 50%;
+z-index: 60;
+height: 40px;
+width: 40px;
+background-image: url('../img/arrows.png');
 }
 
-.front-header .rightside{
-	text-align:center;
-	top:-50%;
-	margin-right:15px;
-	float:right;
-	position:relative;
-	border-radius:25px;
-	width:50px;
-	height:50px;
-	z-index:20;
-	background:url("../img/rightArr.jpg");
-	-webkit-box-shadow: 0 0 4px black;
--moz-box-shadow: 0 0 4px black;
-box-shadow: 0 0 4px black;
+.front-header .leftside{
+position: relative;
+top: -50%;
+float:right;
+-webkit-transform: rotate(-180deg); /* Chrome y Safari */
+-moz-transform: rotate(-180deg); /* Firefox */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); /* Internet Explorer */
+-o-transform: rotate(-180deg);
+
+z-index: 60;
+height: 40px;
+width: 40px;
+background-image: url('../img/arrows.png');
 }
 .front-header{
 	overflow: hidden;

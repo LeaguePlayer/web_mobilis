@@ -4,6 +4,7 @@ $(document).ready(function(){
 	$('.list').find('img').click(function(){
 		$('.title').text($(this).attr('title'));
 	})
+	$('.items').css('left','0px');
 	$('.carusel').children('ul').width($('.carusel').children('ul').children().width()*$('.carusel').children('ul').children().length);
 	$(".jCarouselLite").jCarouselLite({
         btnNext: ".leftside",

@@ -18,25 +18,16 @@ $this->menu=array(
     )',
 	'columns'=>array(
 		'name',
-		'module',
-		'alias',
-		'parent_id',
 		array(
-			'name'=>'status',
+			'name'=>'module',
 			'type'=>'raw',
-			'value'=>'Pages::getStatusAliases($data->status)',
-			'filter'=>Pages::getStatusAliases()
-		),
-		'sort',
-		array(
-			'name'=>'create_time',
-			'type'=>'raw',
-			'value'=>'SiteHelper::russianDate($data->create_time).\' в \'.date(\'H:i\', $data->create_time)'
+			'value'=>'$data->getModule()',
+			'filter'=>TbHtml::activeDropDownList($model,'module', array(''=>'Все')+Pages::getModules()),
 		),
 		array(
-			'name'=>'update_time',
+			'name'=>'parent_id',
 			'type'=>'raw',
-			'value'=>'SiteHelper::russianDate($data->update_time).\' в \'.date(\'H:i\', $data->update_time)'
+			'value'=>'$data->getParent()',
 		),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',

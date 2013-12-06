@@ -2,6 +2,7 @@
 
 class PagesController extends FrontController
 {
+	public $array=array();
 	public $layout='//layouts/simple';
 	public function filters()
 	{
@@ -43,4 +44,5 @@ class PagesController extends FrontController
 			'images'=>$images,
 		));
 	}
+	
 }

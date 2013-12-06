@@ -43,18 +43,18 @@
             <div class="front-header">
                 <div class="jCarouselLite">
                     <?
-                    $this->Widget("application.components.CaruselWidget.CaruselWidget",array('params'=>'qweqweqweqw'));
+                    $this->Widget("application.components.CaruselWidget.CaruselWidget",array());
                     ?>
                 </div>
                 <div class="rightside"></div>
-                    <div class="leftside"></div>
+                <div class="leftside"></div>
             </div>
         </div>
         <div id="menu-1">
             <div class="clearfix">
                 <ul>
                     <li class="addititonal mail"><a href="mailto:mobilisu_tyumen@mail.ru">&nbsp;</a></li>
-                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="kitchen.html">Главная</a></li>
                     <li>
                         <a href="about.html">О компании</a>
                     </li>

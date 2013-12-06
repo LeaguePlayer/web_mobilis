@@ -29,7 +29,7 @@ class SiteController extends FrontController
 	 */
 	public function actionIndex()
 	{
-		$this->render('index');
+		$this->redirect(array('pages'));
 	}
 	/**
 	 * This is the action to handle external exceptions.
