@@ -36,7 +36,6 @@ class MobiliGalariesImages extends EActiveRecord
         );
     }
 
-
     public function attributeLabels()
     {
         return array(

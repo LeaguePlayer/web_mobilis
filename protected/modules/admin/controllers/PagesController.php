@@ -17,17 +17,18 @@ class PagesController extends AdminController
 		}
 		echo "</pre>";
 	}
-	
-	public function actionSet()
+	/*public function actionCreate()
 	{
-		$models=Pages::model()->findAll(array('order'=>'parent_id'));
-		for ($i=1;$i<count($models);$i++)
+		$model =new Pages;
+		if (isset($_POST['Pages']))
 		{
-			if ($models[$i-1]->id==$models[$i]->parent_id)
+			$model->attributes=$_POST['Pages'];
+			if ($model->validate())
 			{
-				$models[$i]->lvl=$models[$i]->lvl+1;
-				$models[$i]->save();	
+				$model_R=Pages::model()->findByAttributes(array('id'=>$model->parent_id));
+				print_r($model_R);
 			}
 		}
-	}
+		$this->render('_form',array('model'=>$model));
+	}*/
 }

@@ -82,6 +82,9 @@
                 <table style="width: 100%;" border="0">
                     <tbody>
                         <tr>
+                            <?
+                                
+                            ?>
                             <td style="width: 25%;" valign="top"><a style="font-size: large;color: #ca0901;" href="kitchen.html">Кухни</a> <a href="spalni.html">Спальни</a> <a href="kid.html">Детская мебель</a> <a href="soft.html">Мягкая мебель</a> <a href="kabinet.html">Кабинеты</a> <a href="gostin.html">Гостиные</a></td>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             <td style="width: 25%;" valign="top"><a href="stolgrup.html">Столовые группы</a> <a href="tv.html">Мебель для TV Hi-Fi</a> <a href="prihoj.html">Прихожие</a> <a href="korpus.html">Корпусная мебель</a> <a href="office.html">Офисная мебель</a> <a href="stolstul.html">Столы, стулья</a></td>

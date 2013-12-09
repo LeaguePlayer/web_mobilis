@@ -48,7 +48,6 @@ class Pages extends EActiveRecord
     public function rules()
     {
         return array(
-            array('create_time', 'required'),
             array('parent_id, status, sort', 'numerical', 'integerOnly'=>true),
             array('name, module, alias', 'length', 'max'=>255),
             array('meta_title, meta_keywords, meta_description, wswg_body, update_time', 'safe'),
