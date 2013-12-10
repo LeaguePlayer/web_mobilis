@@ -54,20 +54,20 @@
             <div class="clearfix">
                 <ul>
                     <li class="addititonal mail"><a href="mailto:mobilisu_tyumen@mail.ru">&nbsp;</a></li>
-                    <li><a href="kitchen.html">Главная</a></li>
+                    <li><a href="category/kitchen.html">Главная</a></li>
                     <li>
-                        <a href="about.html">О компании</a>
+                        <a href="pages/about.html">О компании</a>
                     </li>
                     <li>
-                        <a href="news.html">Новости</a>
+                        <a href="pages/news.html">Новости</a>
                     </li>
                     <li>
-                        <a href="fabrics.html">Фабрики</a>
+                        <a href="pages/fabrics.html">Фабрики</a>
                     </li>
                     <li>
-                        <a href="adv.html">Советы по эксплуатации</a>
+                        <a href="pages/adv.html">Советы по эксплуатации</a>
                         <ul>
-                            <li><a href="contacts.html">Контакты</a></li>
+                            <li><a href="pages/contacts.html">Контакты</a></li>
                         </ul>
                     </li>
                     <li class="last">
@@ -83,15 +83,40 @@
                     <tbody>
                         <tr>
                             <?
-                                
+                                $data=Category::model()->findAll('cat_parent=0');
+                                $iCol=round(count($data)/4);
+                                $result='';
+                                $links='';
+                                $counter=0;
+                                foreach ($data as $key => $value) {
+                                }
+                                    for ($i=1; $i <5; $i++) { 
+                                    $result='<td style="width: 25%;" valign="top">';
+                                    for ($j=0; $j <$iCol ; $j++) { 
+                                        if (isset($data[$counter]))
+                                        {
+                                            if ($_GET['id']!=$data[$counter]->id)
+                                            {
+                                                $links.='<a href="http://mobilis.locl/'.$data[$counter]->alias.'.html?id='.$data[$counter]->id.'">'.$data[$counter]->name.'</a>';
+                                            } else {
+                                                $links.='<a style="font-size: large;color: #ca0901;" href="'.$data[$counter]->alias.'.html?id='.$data[$counter]->id.'">'.$data[$counter]->name.'</a>';
+                                            }
+                                            $counter++;
+                                        }
+                                    }
+                                    $result.=$links.'</td>';
+                                    print($result);
+                                    $links='';
+                                    $result='';
+                                }
                             ?>
-                            <td style="width: 25%;" valign="top"><a style="font-size: large;color: #ca0901;" href="kitchen.html">Кухни</a> <a href="spalni.html">Спальни</a> <a href="kid.html">Детская мебель</a> <a href="soft.html">Мягкая мебель</a> <a href="kabinet.html">Кабинеты</a> <a href="gostin.html">Гостиные</a></td>
+                            <!-- <td style="width: 25%;" valign="top"><a style="font-size: large;color: #ca0901;" href="kitchen.html">Кухни</a> <a href="spalni.html">Спальни</a> <a href="kid.html">Детская мебель</a> <a href="soft.html">Мягкая мебель</a> <a href="kabinet.html">Кабинеты</a> <a href="gostin.html">Гостиные</a></td>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             <td style="width: 25%;" valign="top"><a href="stolgrup.html">Столовые группы</a> <a href="tv.html">Мебель для TV Hi-Fi</a> <a href="prihoj.html">Прихожие</a> <a href="korpus.html">Корпусная мебель</a> <a href="office.html">Офисная мебель</a> <a href="stolstul.html">Столы, стулья</a></td>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             <td style="width: 25%;" valign="top"><a href="biblio.html">Библиотеки</a> <a href="vann.html">Мебель для ванных комнат</a> <a href="predmet.html">Отдельные предметы</a> <a href="svet.html">Свет</a><a href="biblio.html"></a> <a href="accessories.html">Аксессуары</a> <a href="bar.html">Мебель для баров, кафе, ресторанов</a></td>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td style="width: 25%;" valign="top"><a href="hotel.html">Гостиничная мебель</a> <a href="panels.html">Декоративные панели-буазери</a> <a href="billiard.html">Мебель для бильярдной</a> <a href="door.html">Двери</a><a href="sale.html">Матрасы</a></td>
+                            <td style="width: 25%;" valign="top"><a href="hotel.html">Гостиничная мебель</a> <a href="panels.html">Декоративные панели-буазери</a> <a href="billiard.html">Мебель для бильярдной</a> <a href="door.html">Двери</a><a href="sale.html">Матрасы</a></td> -->
                         </tr>
                     </tbody>
                 </table>
@@ -106,6 +131,24 @@
                                 <div class="news-list news-list-custom">
                                     <div class="news-item first">
                                         <div class="clearfix">
+                                            <?
+                                                if (isset($_GET['id']))
+                                                {
+                                                    $id=$_GET['id'];
+                                                    $data=Category::model()->findAll('cat_parent=:id',array(':id'=>$id));
+                                                    foreach ($data as $key => $value) {
+                                                        print ('<div class="k-type">');
+                                                        print('<h5><a href="/category/'.$value->name.'.html?id='.$value->id.'">'.$value->name.'</a></h5>');
+                                                        $items=Goods::model()->findAll('cat_id=:id',array(':id'=>$value->id));
+                                                        print('<ul>');
+                                                        foreach ($items as $key_r => $value_r) {
+                                                            $path='/goods/'.$value_r->name.'.html?id='.$value_r->id;
+                                                            print('<li><a href="'.$path.'">'.$value_r->name.'</a></li>');
+                                                        }
+                                                        print('</ul></div>');
+                                                    }
+                                                }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>

@@ -54,11 +54,11 @@ body {
 }
 
 #header .front-header{
-	position: absolute;
-	right:0;
-	width: 740px;
-	height: 281px;
-	background: transparent url(../img/header-front-bg.jpg) 0 0 no-repeat;
+  position: absolute;
+  right:0;
+  width: 740px;
+  height: 281px;
+  background: transparent url(../img/header-front-bg.jpg) 0 0 no-repeat;
 }
 
     #header a {
@@ -201,7 +201,7 @@ body {
 
   #body .col-left .c-right .inner {
     padding: 10px 20px 20px 0px;
-	margin-left: -4px;
+  margin-left: -4px;
   }
 
 #body .col-right .c-left {
@@ -277,11 +277,11 @@ body {
   }
   
   #footer .counter {
-	text-align: right;
-	/*position: relative;
-	height: 18px;
-	bottom: 0;*/
-	
+  text-align: right;
+  /*position: relative;
+  height: 18px;
+  bottom: 0;*/
+  
   }
 
 /* common styles */
@@ -303,18 +303,18 @@ body {
 
 .content h1 {
   color: #898980;
-	font-size: 25px;
-	line-height: 35px;
-	margin-bottom: 20px;
-	padding-bottom: 5px;
-	border-bottom: 2px solid #bece94;
+  font-size: 25px;
+  line-height: 35px;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #bece94;
 }
 
 .content h2 {
   color: #a2b869;
-	font-size: 18px;
-	line-height: 22px;
-	margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 10px;
 }
 
 .content h3 {
@@ -375,4 +375,84 @@ form.styled fieldset label {
 
 #body .c-left .link-all {
   font-size: 11px;
+}
+
+.c-left .k-type h5 {
+  background-color: #ebddc3;
+  color: #3e210f;
+  display: block;
+  font-size: 13px;
+  padding-left: 15px;
+  line-height: 2.5;
+  font-weight: bold;
+}
+
+.c-left .k-type {
+  margin-bottom: 30px
+}
+
+.c-left .k-type ul li {
+  list-style: none;
+  background-image: none;
+  padding: 0px;
+  line-height: 1.6
+}
+
+.c-left .k-type ul li a {
+  color: #101010;
+  font-size: 13px;
+}
+
+.galleries {
+
+}
+
+.kitchens h2 {
+  color: #898980;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.kitchens .kitchen {
+  width: 325px;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+.kitchens .kitchen .view {
+  width: 325px;
+  height: 225px;
+}
+
+.kitchens .kitchen .thumbs {
+  text-align: center;
+}
+
+.kitchens .kitchen .thumbs img {
+  margin: 0px 2px;
+}
+
+.kitchens .kitchen .original {
+  display: none;
+  position: relative;
+}
+
+.kitchens .kitchen .original img {
+  position: absolute;
+  display: none;
+}
+
+.kitchens .kitchen .kname {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0e0e0e;
+  text-decoration: underline;
+  line-height: 1.6
+}
+
+.kitchens .kitchen .kprice {
+  font-size: 13px;
+  color: #a30000;
+  font-weight: bold;
 }

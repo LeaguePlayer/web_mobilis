@@ -19,7 +19,6 @@
 		{
 		foreach ($images as $value)
 		{
-
 			$data[]=unserialize($value->img_image);
 			$data[count($data)-1]['name']=$value->name;
 		}
@@ -51,6 +50,12 @@
         		</div>
         	</div>
         </div>
-
+		
 </div>
 <?}?>
+<div class="kitchens">
+	<?
+		$data=Category::model()->findAll('cat_parent=:cat_parent',array(':cat_parent'=>$model->id));
+		print_r($data);
+	?>
+</div>

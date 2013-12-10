@@ -7,7 +7,10 @@
 
 
 	<?php echo $form->textFieldControlGroup($model,'name',array('class'=>'span8','maxlength'=>255)); ?>
+<?php echo $form->dropDownList($model,'cat_id',CHtml::listData(Category::model()->findAll(),'id','name'),array('class'=>'span8')); ?>
 
+	<?php echo $form->dropDownListControlGroup($model, 'status', Goods::getStatusAliases(), array('class'=>'span8', 'displaySize'=>1)); ?>
+	
 	<div class='control-group'>
 		<?php echo CHtml::activeLabelEx($model, 'wswg_desc'); ?>
 		<?php $this->widget('appext.ckeditor.CKEditorWidget', array('model' => $model, 'attribute' => 'wswg_desc',
@@ -26,12 +29,7 @@
 			));
 		} ?>
 	</div>
-
-	<?php echo $form->textFieldControlGroup($model,'cat_id',array('class'=>'span8')); ?>
-
-	<?php echo $form->dropDownListControlGroup($model, 'status', Goods::getStatusAliases(), array('class'=>'span8', 'displaySize'=>1)); ?>
-	<div class="form-actions">
+<div class="form-actions">
 		<?php echo TbHtml::submitButton('Сохранить', array('color' => TbHtml::BUTTON_COLOR_PRIMARY)); ?>        <?php echo TbHtml::linkButton('Отмена', array('url'=>'/admin/goods/list')); ?>
 	</div>
-
 <?php $this->endWidget(); ?>

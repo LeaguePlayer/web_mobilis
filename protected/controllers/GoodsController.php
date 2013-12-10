@@ -29,14 +29,14 @@ class GoodsController extends FrontController
 	
 	public function actionView($id)
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel('Goods', $id),
-		));
+		$model=Goods::model()->findByPk($id) ;
+		$this->render('view',array('model'=>$model));
 	}
 
 	
 	public function actionIndex()
 	{
+
 		$dataProvider=new CActiveDataProvider('Goods');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

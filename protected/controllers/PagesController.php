@@ -27,7 +27,6 @@ class PagesController extends FrontController
 		$alias=substr($alias,0,strpos($alias,'.'));
 		$model=Pages::model()->find("alias=:alias",array(':alias'=>$alias));
 		$images=MobiliGalariesImages::model()->findAll("element_id=:id",array(':id'=>$model->id));
-		print($model->name);
 		$categorys=Category::model()->find("name=:name",array(':name'=>$mode->name));
 		if (isset($images))
 		$this->render('view',array(
@@ -41,6 +40,7 @@ class PagesController extends FrontController
 	{
 		$model=Pages::model()->find("alias=:alias",array(':alias'=>"kitchen"));
 		$images=MobiliGalariesImages::model()->findAll("element_id=:id",array(':id'=>$model->id));
+		$pages=Pages::model()->findAll();
 		$this->render('view',array(
 			'model'=>$model,
 			'images'=>$images,
@@ -60,7 +60,6 @@ class PagesController extends FrontController
 	public function actionSwapCategory()
 	{
 		//забивает из таблицы pages в category
-		$pages=Pages::model()->findAll();
 		if (!empty($pages))
 		{
 			foreach ($pages as $key => $value) {
@@ -68,7 +67,8 @@ class PagesController extends FrontController
 					 $catalog=new Category;
 					 $catalog->name=$pages[$key]->name;
 					 $catalog->wswg_body=$pages[$key]->wswg_body;
-					 $catalog->cat_parent=$pages[$key]->parent_id;
+					 $catalog->cat_parent=0;
+					 $catalog->alias=$pages[$key]->alias;
 					 $catalog->save();
 				}
 			}
