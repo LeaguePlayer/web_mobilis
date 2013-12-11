@@ -54,26 +54,25 @@
             <div class="clearfix">
                 <ul>
                     <li class="addititonal mail"><a href="mailto:mobilisu_tyumen@mail.ru">&nbsp;</a></li>
-                    <li><a href="category/kitchen.html">Главная</a></li>
+                    <li><a href="/category/kitchen.html">Главная</a></li>
                     <li>
-                        <a href="pages/about.html">О компании</a>
+                        <a href="/pages/about.html">О компании</a>
                     </li>
                     <li>
-                        <a href="pages/news.html">Новости</a>
+                        <a href="/pages/news.html">Новости</a>
                     </li>
                     <li>
-                        <a href="pages/fabrics.html">Фабрики</a>
+                        <a href="/pages/fabrics.html">Фабрики</a>
                     </li>
                     <li>
-                        <a href="pages/adv.html">Советы по эксплуатации</a>
+                        <a href="/pages/adv.html">Советы по эксплуатации</a>
                         <ul>
-                            <li><a href="pages/contacts.html">Контакты</a></li>
+                            <li><a href="/pages/contacts.html">Контакты</a></li>
                         </ul>
                     </li>
                     <li class="last">
-                        <a href="vakancy.html">Вакансии</a>
+                        <a href="/pages/vakancy.html">Вакансии</a>
                     </li>
-                </ul>
                 </ul>
             </div>
         </div>
@@ -138,7 +137,7 @@
                                                     $data=Category::model()->findAll('cat_parent=:id',array(':id'=>$id));
                                                     foreach ($data as $key => $value) {
                                                         print ('<div class="k-type">');
-                                                        print('<h5><a href="/category/'.$value->name.'.html?id='.$value->id.'">'.$value->name.'</a></h5>');
+                                                        print('<h5><a href="/'.$value->name.'.html?id='.$value->id.'">'.$value->name.'</a></h5>');
                                                         $items=Goods::model()->findAll('cat_id=:id',array(':id'=>$value->id));
                                                         print('<ul>');
                                                         foreach ($items as $key_r => $value_r) {

@@ -70,7 +70,13 @@ class Goods extends EActiveRecord
 					),
 					'medium' => array(
 						'resize' => array(600, 500),
-					)
+					),
+                    'cat_list_large' => array(
+                        'resize' => array(323, 216),
+                    ),
+                    'cat_list_small' => array(
+                        'resize' => array(57, 39),
+                    ),
 				),
 				'name' => true,
 				'description' => true,

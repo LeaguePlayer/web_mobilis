@@ -7,16 +7,39 @@
 
 
 	<?php echo $form->textFieldControlGroup($model,'name',array('class'=>'span8','maxlength'=>255)); ?>
-
+	<?php echo CHtml::label('Родительский элемент',''); ?>
 	<?php echo $form->dropDownList($model,'cat_parent',CHtml::listData(Category::model()->findAll(),'id','name'),array('class'=>'span8')); ?>
-
+	<div class="attrs">
+		<table>
+			<tr>
+				<th>
+					Наименование
+				</th>
+				<th>
+					раз два
+				</th>
+				<th>
+					три четые
+				</th>
+			</tr>
+			<tr>
+				<td>
+					<?php echo CHtml::TextField("attr[]",''); ?>
+				</td>
+				<td>
+<?php echo CHtml::TextField("attr[]",''); ?>				</td>
+				<td>
+<?php echo CHtml::TextField("attr[]",''); ?>				</td>
+			</tr>
+		</table>	
+	</div>
 	<div class='control-group'>
 		<?php echo CHtml::activeLabelEx($model, 'wswg_body'); ?>
 		<?php $this->widget('appext.ckeditor.CKEditorWidget', array('model' => $model, 'attribute' => 'wswg_body',
 		)); ?>
 		<?php echo $form->error($model, 'wswg_body'); ?>
 	</div>
-
+	
 	<?php echo $form->dropDownListControlGroup($model, 'status', Category::getStatusAliases(), array('class'=>'span8', 'displaySize'=>1)); ?>
 	<div class="form-actions">
 		<?php echo TbHtml::submitButton('Сохранить', array('color' => TbHtml::BUTTON_COLOR_PRIMARY)); ?>        <?php echo TbHtml::linkButton('Отмена', array('url'=>'/admin/category/list')); ?>

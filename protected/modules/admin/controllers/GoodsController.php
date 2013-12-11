@@ -2,5 +2,4 @@
 
 class GoodsController extends AdminController
 {
-	
 }

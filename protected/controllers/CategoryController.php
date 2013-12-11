@@ -28,15 +28,17 @@ class CategoryController extends FrontController
 	public function actionView($id)
 	{
 		$model=Category::model()->find("id=:id",array(':id'=>$id));
+		/*print_r($model);
+		die();*/
 		$this->render('cat_list',array(
 			'model'=>$model,
 		));
 	}
 	public function actionIndex()
 	{
-		$model=Pages::model()->find("alias=:alias",array(':alias'=>"kitchen"));
+		$model=Category::model()->find("alias=:alias",array(':alias'=>"kitchen"));
 		$images=MobiliGalariesImages::model()->findAll("element_id=:id",array(':id'=>$model->id));
-		$pages=Pages::model()->findAll();
+		$pages=Category::model()->findAll();
 		$this->render('cat_list',array(
 			'model'=>$model
 		));

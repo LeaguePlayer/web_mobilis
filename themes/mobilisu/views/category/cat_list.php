@@ -16,15 +16,15 @@
 		$data=Goods::model()->findAll('cat_id=:id',array(':id'=>$model->id));
 		if (!empty($data))
 		{
-			$images=$data[0]->getGallery()->galleryPhotos;
-			print_r($images);
 			foreach ($data as $key_d=>$value)
 			{
+				$images=$data[$key_d]->getGallery()->galleryPhotos;	
+				print('<div class="kitchen"><div class="view"><img style="width=323;height=216;	" src="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'cat_list_large.'.$images[0]['ext'].'" ></div><div class="thumbs"><a href=""><img src="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'cat_list_small.'.$images[0]['ext'].'" ></a>');
 				foreach($images as $key=>$img)
 				{
-
-					print('<div class="view"><img src="/'.$img['galleryDir'].'/'.$img['rank'].'medium.'.$img['ext'].'" ></div>');
+					print('<a href=""><img src="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_small.'.$img['ext'].'" ></a>');
 				}
+				print('</div></div>');
 			}
 		}
 	?>

@@ -415,8 +415,8 @@ form.styled fieldset label {
 
 .kitchens .kitchen {
   width: 325px;
-  display: inline-block;
-  margin-right: 20px;
+  float:left;
+  margin-right: 10px;
   margin-bottom: 30px;
 }
 
@@ -427,6 +427,8 @@ form.styled fieldset label {
 
 .kitchens .kitchen .thumbs {
   text-align: center;
+  overflow:hidden;
+  height:30px;
 }
 
 .kitchens .kitchen .thumbs img {
