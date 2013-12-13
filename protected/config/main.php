@@ -111,13 +111,12 @@ return array(
             'class'=>'appext.EPhpThumb.EPhpThumb',
             'options'=>array()
         ),
-        // uncomment the following to enable URLs in path-format
         'urlManager'=>array(
             'showScriptName'=>false,
             'urlFormat'=>'path',
             'rules'=>array(
                 'gii'=>'gii',
-                '/'=>'category',
+                '/'=>'category/index',
                 'category/<alias:[a-z-]+.html>'=>'category/view',
                 '<alias:[a-z-]+.html>'=>'category/view',
                 'admin'=>'admin/start/index',

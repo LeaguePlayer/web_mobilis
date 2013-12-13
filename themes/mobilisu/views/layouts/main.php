@@ -98,10 +98,9 @@
                                     for ($j=0; $j <$iCol ; $j++) { 
                                         if (isset($data[$counter]))
                                         {
-                                            if (isset($_GET['alias']))
                                             if ($_GET['alias']!=$data[$counter]->id)
                                             {
-                                                $links.='<a href="http://mobilis.locl/category/view/'.$data[$counter]->alias.'.html?alias='.$data[$counter]->id.'">'.$data[$counter]->name.'</a>';
+                                                $links.='<a href="/category/view/'.$data[$counter]->alias.'.html?alias='.$data[$counter]->id.'">'.$data[$counter]->name.'</a>';
                                             } else {
                                                 $links.='<a style="font-size: large;color: #ca0901;" href="/category/view/'.$data[$counter]->alias.'.html?alias='.$data[$counter]->id.'">'.$data[$counter]->name.'</a>';
                                             }

@@ -4,6 +4,7 @@ Capfile
 #---
 
 framework
+/protected/config/main.php
 /protected/config/console.php
 /protected/config/cron.php
 /uploads

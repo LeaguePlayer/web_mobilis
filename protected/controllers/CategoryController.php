@@ -43,9 +43,9 @@ class CategoryController extends FrontController
 			$this->render('cat_list',array(
 			'model'=>$model,'goods'=>$goods
 			));				
-		$this->render('cat_list',array(
+		/*$this->render('cat_list',array(
 			'model'=>$model,
-		));
+		));*/
 	}
 	public function actionIndex()
 	{
