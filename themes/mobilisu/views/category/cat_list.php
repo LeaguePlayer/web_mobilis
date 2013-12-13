@@ -21,11 +21,11 @@
 				$images=$data[$key_d]->getGallery()->galleryPhotos;	
 				if($images[0]['rank'])
 				{
-					print('<div class="kitchen"><div class="view"><a href=""><img style="width=323;height=216;	" src="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'cat_list_large.'.$images[0]['ext'].'" ></a></div><div class="thumbs">');
+					print('<div class="kitchen"><div class="view"><a href="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'cat_list_large.'.$images[0]['ext'].'"><img style="width=323;height=216;	" src="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'cat_list_large.'.$images[0]['ext'].'" ></a></div><div class="thumbs">');
 					foreach($images as $key=>$img)
 					{
 						if (!empty($img['rank'])){
-							print('<a href=""><img src="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_small.'.$img['ext'].'" ></a>');
+							print('<a href="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_small.'.$img['ext'].'" rel="'.$key.'"><img src="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_small.'.$img['ext'].'" ></a>');
 						}
 						
 					}
