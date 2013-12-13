@@ -135,7 +135,7 @@
                                     <div class="news-item first">
                                         <div class="clearfix">
                                             <?
-                                                if (is_numeric($_GET['alias']))
+                                                if (isset($_GET['alias']) && is_numeric($_GET['alias']))
                                                 {
                                                     $id=$_GET['alias'];
                                                     $data=Category::model()->findAll('cat_parent=:id',array(':id'=>$id));
