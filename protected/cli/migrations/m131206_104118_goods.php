@@ -29,13 +29,12 @@ class m131206_104118_goods extends CDbMigration
         $this->_checkTables();
  
         $this->createTable('{{goods}}', array(
-            'id' => 'pk', // auto increment
-
-            //'<your_field>' => "<type> COMMENT 'Комментарий'",
+            'id' => 'pk',
             'name' => "string COMMENT 'Название товара'",
             'wswg_desc' => "text COMMENT 'Описание'",
             'gllr_gallery_id' => "integer COMMENT 'Галерея'",
             'cat_id' => "integer COMMENT 'Категория'",
+            'price' => "integer COMMENT 'Категория'",
             'status' => "tinyint COMMENT 'Статус'",
             'sort' => "integer COMMENT 'Вес для сортировки'",
             'create_time' => "timestamp NULL COMMENT 'Дата создания'",

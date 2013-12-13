@@ -11,19 +11,11 @@ class CaruselWidget extends CWidget
     {
         $param=new MobiliShare;
         $mas=$param->findAll('hidden=1');
-        if (count($mas)==0)
-        {
-            print('<img src="/upload/m5.jpg">');
-        } else 
-        {
          foreach($mas as $value)
             {
-
-                $result.='<li><img src="'.$value->getImageUrl("share").'" alt="qweqwe"></li>';
+                $result.='<li><a href="/mobilishare/view/'.$value->name.'.html?id='.$value->id.'"><img src="'.$value->getImageUrl("share").'" alt="qweqwe"></a></li>';
             }
-
         print('<ul class="carusel">'.$result.'</ul>');
-        }
         parent::init();
     }
     public function run()

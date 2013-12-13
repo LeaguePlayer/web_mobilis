@@ -3,21 +3,25 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php echo $form->errorSummary($model); 
+	$cs = Yii::app()->clientScript;
+	$cs->registerScriptFile($this->getAssetsUrl().'/js/add_row.js', CClientScript::POS_END);
+	?>
 
 
 	<?php echo $form->textFieldControlGroup($model,'name',array('class'=>'span8','maxlength'=>255)); ?>
-<?php echo $form->dropDownList($model,'cat_id',CHtml::listData(Category::model()->findAll(),'id','name'),array('class'=>'span8')); ?>
+	<?php echo $form->textFieldControlGroup($model,'price',array('class'=>'span8','maxlength'=>255)); ?>
+<?php echo $form->dropDownList($model,'cat_id',CHtml::listData(Category::model()->findAll(),'id','name'),array('class'=>'span8','options'=>array('selected'=>'1'))); ?>
 
 	<?php echo $form->dropDownListControlGroup($model, 'status', Goods::getStatusAliases(), array('class'=>'span8', 'displaySize'=>1)); ?>
-	
+	<div class="attrs">
+	</div>
 	<div class='control-group'>
 		<?php echo CHtml::activeLabelEx($model, 'wswg_desc'); ?>
 		<?php $this->widget('appext.ckeditor.CKEditorWidget', array('model' => $model, 'attribute' => 'wswg_desc',
 		)); ?>
 		<?php echo $form->error($model, 'wswg_desc'); ?>
 	</div>
-
 	<div class='control-group'>
 		<?php echo CHtml::activeLabelEx($model, 'gllr_gallery_id'); ?>
 		<?php if ($model->galleryBehaviorGallery_id->getGallery() === null) {

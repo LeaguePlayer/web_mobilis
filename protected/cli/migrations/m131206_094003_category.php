@@ -36,6 +36,7 @@ class m131206_094003_category extends CDbMigration
             'cat_parent' => "integer COMMENT 'Родительский раздел'",
             'wswg_body' => "text COMMENT 'Описание'",
 			'status' => "tinyint COMMENT 'Статус'",
+            'alias'=>"string COMMENT 'Алиас'",
 			'sort' => "integer COMMENT 'Вес для сортировки'",
             'create_time' => "timestamp NULL COMMENT 'Дата создания'",
             'update_time' => "timestamp NULL COMMENT 'Дата последнего редактирования'",

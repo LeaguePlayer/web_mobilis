@@ -39,6 +39,7 @@ class m131129_070000_pages extends CDbMigration
             'meta_description' => "text COMMENT 'Meta description'",
             'wswg_body' => "text COMMENT 'Контент'",
 			'parent_id' => "int COMMENT 'Родительский раздел'",
+            'lvl'=>"int COMMENT 'Уровень вложенности'",
 			'status' => "tinyint COMMENT 'Статус'",
 			'sort' => "integer COMMENT 'Вес для сортировки'",
             'create_time' => "timestamp COMMENT 'Дата создания'",

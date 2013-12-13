@@ -26,7 +26,7 @@ class Goods extends EActiveRecord
     {
         return array(
             //array('create_time', 'required'),
-            array('gllr_gallery_id, cat_id, status, sort', 'numerical', 'integerOnly'=>true),
+            array('gllr_gallery_id, cat_id, status, sort, price', 'numerical', 'integerOnly'=>true),
             array('name', 'length', 'max'=>255),
             array('wswg_desc', 'safe'),
             // The following rule is used by search().
@@ -47,6 +47,7 @@ class Goods extends EActiveRecord
         return array(
             'id' => 'ID',
             'name' => 'Название товара',
+            'price' => 'Цена',
             'wswg_desc' => 'Описание',
             'gllr_gallery_id' => 'Галерея',
             'cat_id' => 'Категория',

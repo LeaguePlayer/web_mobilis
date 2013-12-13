@@ -30,9 +30,7 @@ class m131205_040801_mobiliShare extends CDbMigration
  
         $this->createTable('{{mobiliShare}}', array(
             'id' => 'pk', // auto increment
-
 			'name' => "string COMMENT 'Название'",
-			
 			'discription' => "text COMMENT 'Описание'",
 			'condition' => "string COMMENT 'Условие'",
             'img_image' => "text COMMENT 'Банер'",

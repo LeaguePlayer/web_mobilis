@@ -11,8 +11,6 @@ class CategoryController extends FrontController
 			'accessControl', // perform access control for CRUD operations
 		);
 	}
-
-	
 	public function accessRules()
 	{
 		return array(
@@ -25,11 +23,26 @@ class CategoryController extends FrontController
 			),
 		);
 	}
-	public function actionView($id)
+	public function actionView($alias)
 	{
-		$model=Category::model()->find("id=:id",array(':id'=>$id));
-		/*print_r($model);
-		die();*/
+		!isset($_GET['id']) ? 
+		$model=Category::model()->find("id=:id",array(':id'=>$alias)) :
+		$model=Category::model()->find("id=:id",array(':id'=>$_GET['id']));
+		$categories=Category::model()->findAll('cat_parent=:id',array(':id'=>$model->id));
+		if (!empty($categories))
+		{
+			$goods=array();
+			foreach($categories as $key=>$value)
+			{
+				$goods+=Goods::model()->findAll('cat_id=:id',array(':id'=>$value->id));
+			}
+		} else {
+				$goods=Goods::model()->findAll('cat_id=:id',array(':id'=>$model->id));
+				
+			}
+			$this->render('cat_list',array(
+			'model'=>$model,'goods'=>$goods
+			));				
 		$this->render('cat_list',array(
 			'model'=>$model,
 		));

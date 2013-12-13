@@ -45,6 +45,7 @@ class Category extends EActiveRecord
         return array(
             'id' => 'ID',
             'name' => 'Название категории',
+            'alias' => 'Алиас',
             'cat_parent' => 'Родительский раздел',
             'wswg_body' => 'Описание',
             'status' => 'Статус',
@@ -62,6 +63,7 @@ class Category extends EActiveRecord
         $criteria=new CDbCriteria;
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
+        $criteria->compare('alias',$this->alias,true);
 		$criteria->compare('cat_parent',$this->cat_parent);
 		$criteria->compare('wswg_body',$this->wswg_body,true);
 		$criteria->compare('status',$this->status);

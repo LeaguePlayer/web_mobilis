@@ -19,6 +19,10 @@
 	$cs->registerScriptFile($this->getAssetsUrl().'/js/common.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/JCarusel.JQuery.js', CClientScript::POS_END);
 	$cs->registerScriptFile('//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/script.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/gallery.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.tools.min.js', CClientScript::POS_END);
+    $cs->registerCssFile($this->getAssetsUrl().'/css/gallery.css');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -54,7 +58,7 @@
             <div class="clearfix">
                 <ul>
                     <li class="addititonal mail"><a href="mailto:mobilisu_tyumen@mail.ru">&nbsp;</a></li>
-                    <li><a href="/category/kitchen.html">Главная</a></li>
+                    <li><a href="/">Главная</a></li>
                     <li>
                         <a href="/pages/about.html">О компании</a>
                     </li>
@@ -89,16 +93,16 @@
                                 $counter=0;
                                 foreach ($data as $key => $value) {
                                 }
-                                    for ($i=1; $i <5; $i++) { 
+                                    for ($i=0; $i <4; $i++) { 
                                     $result='<td style="width: 25%;" valign="top">';
                                     for ($j=0; $j <$iCol ; $j++) { 
                                         if (isset($data[$counter]))
                                         {
-                                            if ($_GET['id']!=$data[$counter]->id)
+                                            if ($_GET['alias']!=$data[$counter]->id)
                                             {
-                                                $links.='<a href="http://mobilis.locl/'.$data[$counter]->alias.'.html?id='.$data[$counter]->id.'">'.$data[$counter]->name.'</a>';
+                                                $links.='<a href="http://mobilis.locl/category/view/'.$data[$counter]->alias.'.html?alias='.$data[$counter]->id.'">'.$data[$counter]->name.'</a>';
                                             } else {
-                                                $links.='<a style="font-size: large;color: #ca0901;" href="'.$data[$counter]->alias.'.html?id='.$data[$counter]->id.'">'.$data[$counter]->name.'</a>';
+                                                $links.='<a style="font-size: large;color: #ca0901;" href="/category/view/'.$data[$counter]->alias.'.html?alias='.$data[$counter]->id.'">'.$data[$counter]->name.'</a>';
                                             }
                                             $counter++;
                                         }
@@ -131,17 +135,18 @@
                                     <div class="news-item first">
                                         <div class="clearfix">
                                             <?
-                                                if (isset($_GET['id']))
+                                                if (is_numeric($_GET['alias']))
                                                 {
-                                                    $id=$_GET['id'];
+                                                    $id=$_GET['alias'];
                                                     $data=Category::model()->findAll('cat_parent=:id',array(':id'=>$id));
                                                     foreach ($data as $key => $value) {
+                                                        $parent=Category::model()->find('id=:id',array(':id'=>$value->cat_parent));
                                                         print ('<div class="k-type">');
-                                                        print('<h5><a href="/'.$value->name.'.html?id='.$value->id.'">'.$value->name.'</a></h5>');
+                                                        print('<h5><a href="/category/view/'.$parent->alias.'.html?alias='.$_GET['alias'].'&id='.$value->id.'">'.$value->name.'</a></h5>');
                                                         $items=Goods::model()->findAll('cat_id=:id',array(':id'=>$value->id));
                                                         print('<ul>');
                                                         foreach ($items as $key_r => $value_r) {
-                                                            $path='/goods/'.$value_r->name.'.html?id='.$value_r->id;
+                                                            $path='/goods/view/'.$value_r->name.'.html?id='.$value_r->id;
                                                             print('<li><a href="'.$path.'">'.$value_r->name.'</a></li>');
                                                         }
                                                         print('</ul></div>');

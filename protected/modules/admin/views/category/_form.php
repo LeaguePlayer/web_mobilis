@@ -7,31 +7,18 @@
 
 
 	<?php echo $form->textFieldControlGroup($model,'name',array('class'=>'span8','maxlength'=>255)); ?>
+	<?php echo $form->textFieldControlGroup($model,'alias',array('class'=>'span8','maxlength'=>255)); ?>
 	<?php echo CHtml::label('Родительский элемент',''); ?>
-	<?php echo $form->dropDownList($model,'cat_parent',CHtml::listData(Category::model()->findAll(),'id','name'),array('class'=>'span8')); ?>
+	<?php echo $form->dropDownList($model,'cat_parent',CHtml::listData(Category::model()->findAll(),'id','name'),array('class'=>'span8','selected'=>$selected)); ?>
 	<div class="attrs">
-		<table>
-			<tr>
-				<th>
-					Наименование
-				</th>
-				<th>
-					раз два
-				</th>
-				<th>
-					три четые
-				</th>
-			</tr>
-			<tr>
-				<td>
-					<?php echo CHtml::TextField("attr[]",''); ?>
-				</td>
-				<td>
-<?php echo CHtml::TextField("attr[]",''); ?>				</td>
-				<td>
-<?php echo CHtml::TextField("attr[]",''); ?>				</td>
-			</tr>
-		</table>	
+		<?=CHtml::label('Наименования характеристик','')?>
+		<?=CHtml::button($label='Наименования характеристик',array('id'=>'add'))?>
+		<ul>
+			<li><?=CHtml::textField('attr[]')?></li>
+			<li><?=CHtml::textField('attr[]')?></li>
+			<li><?=CHtml::textField('attr[]')?></li>
+			<li><?=CHtml::textField('attr[]')?></li>
+		</ul>
 	</div>
 	<div class='control-group'>
 		<?php echo CHtml::activeLabelEx($model, 'wswg_body'); ?>

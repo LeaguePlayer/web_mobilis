@@ -29,12 +29,9 @@ class MobiliShareController extends FrontController
 	
 	public function actionView($id)
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel('MobiliShare', $id),
-		));
+		$model=MobiliShare::model()->find('id=:id',array(':id'=>$id));
+		$this->render('view',array('model'=>$model));
 	}
-
-	
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('MobiliShare');

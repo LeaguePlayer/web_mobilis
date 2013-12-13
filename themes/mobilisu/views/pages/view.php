@@ -9,12 +9,6 @@
 	<?
 		echo '<h1>'.$model->name.'</h1>';
 		echo $model->wswg_body;
-		$cs = Yii::app()->clientScript;
-		$cs->registerScriptFile($this->getAssetsUrl().'/js/script.js', CClientScript::POS_END);
-		$cs = Yii::app()->clientScript;
-		$cs->registerScriptFile($this->getAssetsUrl().'/js/gallery.js', CClientScript::POS_END);
-		$cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.tools.min.js', CClientScript::POS_END);
-		$cs->registerCssFile($this->getAssetsUrl().'/css/gallery.css');
 		if (!empty($images))
 		{
 		foreach ($images as $value)
@@ -56,6 +50,5 @@
 <div class="kitchens">
 	<?
 		$data=Category::model()->findAll('cat_parent=:cat_parent',array(':cat_parent'=>$model->id));
-		print_r($data);
 	?>
 </div>
