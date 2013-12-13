@@ -17,12 +17,12 @@
 	$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.timepicker.addon.js', CClientScript::POS_END);
 	$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.ui.timepicker.ru.js', CClientScript::POS_END);
 	$cs->registerScriptFile($this->getAssetsUrl().'/js/common.js', CClientScript::POS_END);
-    $cs->registerScriptFile($this->getAssetsUrl().'/js/JCarusel.JQuery.js', CClientScript::POS_END);
+    
 	$cs->registerScriptFile('//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/script.js', CClientScript::POS_END);
-    $cs->registerScriptFile($this->getAssetsUrl().'/js/gallery.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.tools.min.js', CClientScript::POS_END);
     $cs->registerCssFile($this->getAssetsUrl().'/css/gallery.css');
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/jCarouselLite.js', CClientScript::POS_END);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -146,7 +146,7 @@
                                                         $items=Goods::model()->findAll('cat_id=:id',array(':id'=>$value->id));
                                                         print('<ul>');
                                                         foreach ($items as $key_r => $value_r) {
-                                                            $path='/goods/view/'.$value_r->name.'.html?id='.$value_r->id;
+                                                            $path='/goods/view/'.$value_r->name.'.html?alias='.$_GET['alias'].'&id='.$value_r->id;
                                                             print('<li><a href="'.$path.'">'.$value_r->name.'</a></li>');
                                                         }
                                                         print('</ul></div>');

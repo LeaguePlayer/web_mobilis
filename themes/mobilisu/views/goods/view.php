@@ -14,7 +14,7 @@ $this->breadcrumbs=array(
 			print('<p >Наименование: '.$model->name);
 			print ('</p>');
 			print('<div class="view"><img style="width=323;height=216;	" src="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'cat_list_large.'.$images[0]['ext'].'" >');
-				print('</div><div class="thumbs"><a href=""><img src="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'cat_list_small.'.$images[0]['ext'].'" ></a>');
+				print('</div><div class="thumbs">');
 			foreach($images as $key=>$img)
 			{
 				print('<a href="/goods/view/"><img src="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_small.'.$img['ext'].'" ></a>');

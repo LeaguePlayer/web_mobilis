@@ -19,6 +19,7 @@
 				)),
 				array('label'=>'Категории', 'url'=>'/admin/category'),
 				array('label'=>'Товары', 'url'=>'/admin/goods'),
+				array('label'=>'Акции', 'url'=>'/admin/mobilishare'),
 			);
 		?>
 		<?php $this->widget('bootstrap.widgets.TbNavbar', array(
