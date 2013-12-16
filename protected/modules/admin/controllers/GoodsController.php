@@ -22,7 +22,7 @@ class GoodsController extends AdminController
 			$model->attributes=$_POST['Goods'];
 			if ($model->save())
 			{
-				if (isset($_POST['attrs']))
+				if (!empty($_POST['attrs']))
 				{
 					foreach($_POST['attrs'] as $key=>$value)
 					{
