@@ -17,9 +17,18 @@
 						array('label'=>'Список', 'url'=>"/admin/pages/list"),
 					)),
 				)),
-				array('label'=>'Категории', 'url'=>'/admin/category'),
-				array('label'=>'Товары', 'url'=>'/admin/goods'),
-				array('label'=>'Акции', 'url'=>'/admin/mobilishare'),
+				array('label'=>'Категории', 'url'=>'/admin/category','items' => array(
+						array('label'=>'Создать', 'url'=>"/admin/category/create"),
+						array('label'=>'Список', 'url'=>"/admin/category/list"),
+					)),
+				array('label'=>'Товары', 'url'=>'/admin/goods','items' => array(
+						array('label'=>'Создать', 'url'=>"/admin/goods/create"),
+						array('label'=>'Список', 'url'=>"/admin/goods/list"),
+					)),
+				array('label'=>'Акции', 'url'=>'/admin/mobilishare','items' => array(
+						array('label'=>'Создать', 'url'=>"/admin/mobilishare/create"),
+						array('label'=>'Список', 'url'=>"/admin/mobilishare/list"),
+					)),
 			);
 		?>
 		<?php $this->widget('bootstrap.widgets.TbNavbar', array(
