@@ -25,7 +25,7 @@
 					foreach($images as $key=>$img)
 					{
 						if (!empty($img['rank'])){
-							print('<a href="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_small.'.$img['ext'].'" rel="'.$key.'"><img src="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_small.'.$img['ext'].'" ></a>');
+							print('<a href="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_large.'.$img['ext'].'" rel="'.$key_d.'"><img src="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_small.'.$img['ext'].'" ></a>');
 						}
 						
 					}

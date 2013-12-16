@@ -17,7 +17,7 @@ $this->breadcrumbs=array(
 				print('</div><div class="thumbs">');
 			foreach($images as $key=>$img)
 			{
-				print('<a href="/goods/view/"><img src="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_small.'.$img['ext'].'" ></a>');
+				print('<a href="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_large.'.$img['ext'].'"><img src="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_small.'.$img['ext'].'" ></a>');
 			}
 			print('</div></div>');
 			}?>

@@ -4,4 +4,7 @@ $(document).ready(function(){
         btnPrev: ".rightside",
         visible:1,
     });
+    $(document).ready(function() {
+		$(".thumbs").fancybox();
+	});
 })
