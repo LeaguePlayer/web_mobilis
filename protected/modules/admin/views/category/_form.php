@@ -11,8 +11,7 @@
 	<?php echo CHtml::label('Родительский элемент',''); ?>
 	<?php echo $form->dropDownList($model,'cat_parent',CHtml::listData(Category::model()->findAll(),'id','name'),array('class'=>'span8','selected'=>$selected)); ?>
 	<div class="attrs">	
-		<?=CHtml::label('Добавить характеристику','')?>
-		<?=CHtml::button($label='Наименования характеристик',array('id'=>'add'))?>
+		<?=CHtml::button($label='Добавить Характеристику',array('id'=>'add','class'=>'add_cat_btn'))?>
 		<ul>
 			<li><?=CHtml::textField('attr[]')?></li>
 			<li><?=CHtml::textField('attr[]')?></li>
