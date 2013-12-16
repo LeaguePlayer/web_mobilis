@@ -6,7 +6,6 @@ $(document).ready(function (){
   			method:"GET",
   			data:{id:$(this).val()},
   			success: function(data) {
-  				alert(data);
     		$('.attrs').append(data);
   		}
     });

@@ -10,8 +10,8 @@
 	<?php echo $form->textFieldControlGroup($model,'alias',array('class'=>'span8','maxlength'=>255)); ?>
 	<?php echo CHtml::label('Родительский элемент',''); ?>
 	<?php echo $form->dropDownList($model,'cat_parent',CHtml::listData(Category::model()->findAll(),'id','name'),array('class'=>'span8','selected'=>$selected)); ?>
-	<div class="attrs">
-		<?=CHtml::label('Наименования характеристик','')?>
+	<div class="attrs">	
+		<?=CHtml::label('Добавить характеристику','')?>
 		<?=CHtml::button($label='Наименования характеристик',array('id'=>'add'))?>
 		<ul>
 			<li><?=CHtml::textField('attr[]')?></li>
