@@ -7,6 +7,7 @@
 	  <?
 	  	$cs = Yii::app()->clientScript;
 	  	$cs->registerScriptFile($this->getAssetsUrl().'/js/add_row.js', CClientScript::POS_END);
+	  	$cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.translate-1.3.9.min.js', CClientScript::POS_END);
 	  ?>
 	</head>
 	<body>
