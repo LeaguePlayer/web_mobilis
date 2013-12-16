@@ -4,6 +4,10 @@
 	  <meta charset="utf-8">
 	  <title><?php echo CHtml::encode(Yii::app()->name).' | Admin';?></title>
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <?
+	  	$cs = Yii::app()->clientScript;
+	  	$cs->registerScriptFile($this->getAssetsUrl().'/js/add_row.js', CClientScript::POS_END);
+	  ?>
 	</head>
 	<body>
 	  

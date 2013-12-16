@@ -15,6 +15,7 @@ $(document).ready(function (){
           data.children('input').val('');
           $('.attrs ul').append(data);
       })
+  if ($('#category-form')!=null)
   $('#category-form').liTranslit({
     elName: '#Category_name',    //Класс елемента с именем
     elAlias: '#Category_alias'   //Класс елемента с алиасом
