@@ -25,9 +25,9 @@
 						array('label'=>'Создать', 'url'=>"/admin/goods/create"),
 						array('label'=>'Список', 'url'=>"/admin/goods/list"),
 					)),
-				array('label'=>'Акции', 'url'=>'/admin/mobilishare','items' => array(
-						array('label'=>'Создать', 'url'=>"/admin/mobilishare/create"),
-						array('label'=>'Список', 'url'=>"/admin/mobilishare/list"),
+				array('label'=>'Акции', 'url'=>'/admin/MobiliShare','items' => array(
+						array('label'=>'Создать', 'url'=>"/admin/MobiliShare/create"),
+						array('label'=>'Список', 'url'=>"/admin/MobiliShare/list"),
 					)),
 			);
 		?>

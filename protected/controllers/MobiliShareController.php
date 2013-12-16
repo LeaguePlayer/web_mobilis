@@ -12,7 +12,6 @@ class MobiliShareController extends FrontController
 		);
 	}
 
-	
 	public function accessRules()
 	{
 		return array(
