@@ -13,7 +13,7 @@ class CaruselWidget extends CWidget
         $mas=$param->findAll('hidden=1');
          foreach($mas as $value)
             {
-                $result.='<li style="height:280px;"><a style="height:280px;" href="/mobilishare/view/'.$value->name.'.html?id='.$value->id.'"><img src="'.$value->getImageUrl("share").'" alt="qweqwe"></a></li>';
+                $result.='<li style="height:280px;"><a style="height:280px;" href="/MobiliShare/view/'.$value->name.'.html?id='.$value->id.'"><img src="'.$value->getImageUrl("share").'" alt="qweqwe"></a></li>';
             }
         print('<ul class="carusel">'.$result.'</ul>');
         parent::init();
