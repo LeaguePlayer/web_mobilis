@@ -12,8 +12,8 @@
 	<?php echo $form->textFieldControlGroup($model,'name',array('class'=>'span8','maxlength'=>255)); ?>
 	<?php echo $form->textFieldControlGroup($model,'price',array('class'=>'span8','maxlength'=>255)); ?>
 <?php echo $form->dropDownList($model,'cat_id',CHtml::listData(Category::model()->findAll(),'id','name'),array('class'=>'span8','options'=>array('selected'=>'1'))); ?>
-
 	<?php echo $form->dropDownListControlGroup($model, 'status', Goods::getStatusAliases(), array('class'=>'span8', 'displaySize'=>1)); ?>
+	
 	<div class="attrs">
 		<table>
 			

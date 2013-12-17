@@ -11,18 +11,21 @@
 	<?php echo CHtml::label('Родительский элемент',''); ?>
 	<?php echo $form->dropDownList($model,'cat_parent',CHtml::listData(Category::model()->findAll(),'id','name'),array('class'=>'span8','selected'=>$selected,'empty'=>'Не задано')); ?>
 	<div class="attrs">
+		<?=CHtml::button($label='Добавить Характеристику',array('id'=>'add','class'=>'add_cat_btn'))?>
 		<?if (isset($attrs)) {?>
-		<table>
-			<tr>
+		<ul>
+			
 				<?
 					foreach($attrs as $key=>$value)
 					{
-						print('<td>'.CHtml::TextField('attr['.$key.']',$value).'</td>');
+						print('<li>'.CHtml::TextField('attr['.$key.']',$value->name).'<a href="#" rel="'.$value->id.'" >delete</a></li>');
 					}
 				?>
-			</tr>
-		</table>	
-		<?}?>
+			
+		</ul>	
+		<?} else 
+
+		?>
 	</div>
 	<div class='control-group'>
 		<?php echo CHtml::activeLabelEx($model, 'wswg_body'); ?>
