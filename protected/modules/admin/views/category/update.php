@@ -11,5 +11,4 @@ $this->menu=array(
 ?>
 
 <h1><?php echo $model->translition(); ?> - Редактирование</h1>
-
 <?php echo $this->renderPartial('_update',array('model'=>$model,'attrs'=>$attrs)); ?>
