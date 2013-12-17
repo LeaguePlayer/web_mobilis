@@ -86,7 +86,10 @@
                     <tbody>
                         <tr>
                             <?
-                                $data=Category::model()->findAll('cat_parent=0');
+                                $criteria = new CDbCriteria;
+                                $criteria->compare('cat_parent', 0);
+                                $criteria->order = 'sort';
+                                $data=Category::model()->findAll($criteria);
                                 $iCol=round(count($data)/4);
                                 $result='';
                                 $links='';
