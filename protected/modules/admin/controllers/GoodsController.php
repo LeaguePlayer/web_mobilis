@@ -48,7 +48,7 @@ class GoodsController extends AdminController
 			$model->save();
 			if ($model->save())
 			{
-				if ($model->save())
+				if (!empty($_POST['attrs']))
 				{
 					foreach($_POST['attrs'] as $key=>$value)
 					{
