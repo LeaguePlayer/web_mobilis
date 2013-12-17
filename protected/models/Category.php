@@ -73,7 +73,8 @@ class Category extends EActiveRecord
         $criteria->order = 'sort';
 
         return new CActiveDataProvider($this, array(
-            'criteria'=>$criteria
+            'criteria'=>$criteria,
+            'pagination'=>array('pageSize'=>10000)
         ));
     }
 
