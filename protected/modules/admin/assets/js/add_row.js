@@ -30,7 +30,7 @@ $(document).ready(function (){
     return false;
   })
   $('#add').click(function(){
-          $('.attrs ul').append('<li><input type="text" name="attr[]" id="attr"><a href="#" >delete</a></li>');
+          $('.attrs ul').append('<li><input type="text" name="attr[]" id="attr"><a class="del_btn" href="#" ></a></li>');
       })
   if ($('#category-form')!=null)
   {

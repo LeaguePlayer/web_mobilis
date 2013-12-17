@@ -90,3 +90,11 @@ ul {
 
   margin:5px 0 10px 0;
 }
+.del_btn
+{
+  width:20px;
+  height:20px;
+  display:inline-block;
+  margin:3px;
+  background:url("media/cross.png");
+}
