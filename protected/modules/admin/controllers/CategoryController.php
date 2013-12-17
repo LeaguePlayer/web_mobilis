@@ -8,6 +8,8 @@ class CategoryController extends AdminController
 		if (isset($_POST['Category']))
 		{
 			$model->attributes=$_POST['Category'];
+			if (empty($model->cat_parent))
+				$model->cat_parent=0;
 			$model->alias=$_POST['Category']['alias'];
 			$model->save();
 			foreach ($_POST['attr'] as $key => $value) {

@@ -9,7 +9,7 @@
 	<?php echo $form->textFieldControlGroup($model,'name',array('class'=>'span8','maxlength'=>255)); ?>
 	<?php echo $form->textFieldControlGroup($model,'alias',array('class'=>'span8','maxlength'=>255)); ?>
 	<?php echo CHtml::label('Родительский элемент',''); ?>
-	<?php echo $form->dropDownList($model,'cat_parent',CHtml::listData(Category::model()->findAll(),'id','name'),array('class'=>'span8','selected'=>$selected)); ?>
+	<?php echo $form->dropDownList($model,'cat_parent',CHtml::listData(Category::model()->findAll(),'id','name'),array('class'=>'span8','selected'=>$selected,'empty'=>'Не задано')); ?>
 	<div class="attrs">
 		<?if (isset($attrs)) {?>
 		<table>

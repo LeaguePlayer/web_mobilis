@@ -48,17 +48,20 @@ class GoodsController extends AdminController
 			$model->save();
 			if ($model->save())
 			{
-				foreach($_POST['attrs'] as $key=>$value)
+				if ($model->save())
 				{
-					$attr=GoodsAttrValues::model()->findByPk($key);
-					if (empty($attr))
+					foreach($_POST['attrs'] as $key=>$value)
 					{
-						$attr=new GoodsAttrValues;
+						$attr=GoodsAttrValues::model()->findByPk($key);
+						if (empty($attr))
+						{
+							$attr=new GoodsAttrValues;
+						}
+							$attr->goods_id=$model->id;
+							$attr->attr_id=$key;
+							$attr->attr_value=$value;
+							$attr->save();
 					}
-						$attr->goods_id=$model->id;
-						$attr->attr_id=$key;
-						$attr->attr_value=$value;
-						$attr->save();
 				}
 				$this->redirect(array('list'));
 			}
