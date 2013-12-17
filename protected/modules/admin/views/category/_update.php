@@ -18,7 +18,7 @@
 				<?
 					foreach($attrs as $key=>$value)
 					{
-						print('<li>'.CHtml::TextField('attr['.$key.']',$value->name).'<a href="#" rel="'.$value->id.'" >delete</a></li>');
+						print('<li>'.CHtml::TextField('attr['.$key.']',$value->name).'<a class="del_btn" href="#" rel="'.$value->id.'" ></a></li>');
 					}
 				?>
 			

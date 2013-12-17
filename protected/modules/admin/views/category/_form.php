@@ -13,10 +13,10 @@
 	<div class="attrs">	
 		<?=CHtml::button($label='Добавить Характеристику',array('id'=>'add','class'=>'add_cat_btn'))?>
 		<ul>
-			<li><?=CHtml::textField('attr[]')?><a href="#" rel="'.$value->id.'" >delete</a></li>
-			<li><?=CHtml::textField('attr[]')?><a href="#" rel="'.$value->id.'" >delete</a></li>
-			<li><?=CHtml::textField('attr[]')?><a href="#" rel="'.$value->id.'" >delete</a></li>
-			<li><?=CHtml::textField('attr[]')?><a href="#" rel="'.$value->id.'" >delete</a></li>
+			<li><?=CHtml::textField('attr[]')?><a href="#" rel="'.$value->id.'" class="del_btn"></a></li>
+			<li><?=CHtml::textField('attr[]')?><a href="#" rel="'.$value->id.'" class="del_btn"></a></li>
+			<li><?=CHtml::textField('attr[]')?><a href="#" rel="'.$value->id.'" class="del_btn"></a></li>
+			<li><?=CHtml::textField('attr[]')?><a href="#" rel="'.$value->id.'" class="del_btn"></a></li>
 		</ul>
 	</div>
 	<div class='control-group'>
