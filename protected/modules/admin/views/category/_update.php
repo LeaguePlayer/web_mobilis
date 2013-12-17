@@ -18,7 +18,7 @@
 				<?
 					foreach($attrs as $key=>$value)
 					{
-						print('<li>'.CHtml::TextField('attr['.$key.']',$value->name).'<a class="del_btn" href="#" rel="'.$value->id.'" ></a></li>');
+						print('<li>'.CHtml::TextField('attr['.$value->id.']',$value->name).'<a class="del_btn" href="#" rel="'.$value->id.'" ></a></li>');
 					}
 				?>
 			
@@ -36,6 +36,6 @@
 	
 	<?php echo $form->dropDownListControlGroup($model, 'status', Category::getStatusAliases(), array('class'=>'span8', 'displaySize'=>1)); ?>
 	<div class="form-actions">
-		<?php echo TbHtml::submitButton('Сохранить', array('color' => TbHtml::BUTTON_COLOR_PRIMARY)); ?>        <?php echo TbHtml::linkButton('Отмена', array('url'=>'/admin/category/list')); ?>
+		<?php echo TbHtml::submitButton('Сохранить', array('url'=>'/admin/category/list'),array('color' => TbHtml::BUTTON_COLOR_PRIMARY)); ?>        <?php echo TbHtml::linkButton('Отмена', array('url'=>'/admin/category/list')); ?>
 	</div>
 <?php $this->endWidget(); ?>
