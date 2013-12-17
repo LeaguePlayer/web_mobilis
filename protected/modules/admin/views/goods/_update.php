@@ -19,7 +19,8 @@
 			<tr>
 				<?
 					foreach ($attrs as $key => $value) {
-						print('<td>'.$value->id.'<input type="text" name="attrs['.$value->id.']" value="'.$value->attr_value.'"></td>');
+						$att=CategoryAttrs::model()->findByPk($value->id);
+						print('<td>'.$att->name.'<input type="text" name="attrs['.$value->id.']" value="'.$value->attr_value.'"></td>');
 					}
 				?>
 			</tr>
