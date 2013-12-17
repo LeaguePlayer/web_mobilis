@@ -38,20 +38,21 @@ class CategoryController extends AdminController
 			foreach ($_POST['attr'] as $key => $value) {
 				if ($value!="")
 				{
-					$attr=new CategoryAttrs;
+
+					$attr=CategoryAttrs::model()->findByPk($key);
+					empty($attr) ? $attr=new CategoryAttrs: false;
 					$attr->name=$_POST['attr'][$key];
 					$attr->category_id=$model->id;
 					$attr->save();
 				}
 			}
-			$this->redirect('list');
+			$this->redirect(array('list'));
 		}
 		$this->render('update',array('model'=>$model,'attrs'=>$attrs));
 	}
 	public function actionAttrDelete($id)
 	{
-
-		$model=CategoryAttrs::model()->deleteByPk($id);
+		echo $model=CategoryAttrs::model()->deleteByPk($id);
 		die();
 	}
 }
