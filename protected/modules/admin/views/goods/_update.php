@@ -16,14 +16,14 @@
 	<?php echo $form->dropDownListControlGroup($model, 'status', Goods::getStatusAliases(), array('class'=>'span8', 'displaySize'=>1)); ?>
 	<div class="attrs">
 		<table>
-			
+			<tr>
 				<?
 					foreach ($attrs as $key => $value) {
-						$att=CategoryAttrs::model()->findByPk($value->id);
-						print('<tr><td width="150">'.$att->name.'</td><td><input type="text" name="attrs['.$value->id.']" value="'.$value->attr_value.'"></td></tr>');
+						$att=CategoryAttrs::model()->findBypk($id);
+						print('<td>'.$att->name.'<input type="text" name="attrs['.$value->id.']" value="'.$value->attr_value.'"></td>');
 					}
 				?>
-			
+			</tr>
 		</table>
 	</div>
 	<div class='control-group'>
