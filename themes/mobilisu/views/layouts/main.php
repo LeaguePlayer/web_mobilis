@@ -86,7 +86,7 @@
                     <tbody>
                         <tr>
                             <?
-                                $criteria = new CDbCriteria;
+								$criteria = new CDbCriteria;
                                 $criteria->compare('cat_parent', 0);
                                 $criteria->order = 'sort';
                                 $data=Category::model()->findAll($criteria);
