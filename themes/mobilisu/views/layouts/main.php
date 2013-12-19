@@ -141,7 +141,10 @@
                                                 if (isset($_GET['alias']) && is_numeric($_GET['alias']))
                                                 {
                                                     $id=$_GET['alias'];
-                                                    $data=Category::model()->findAll('cat_parent=:id',array(':id'=>$id));
+                                                    $criteria = new CDbCriteria;
+                                                    $criteria->compare('cat_parent', $id);
+                                                    $criteria->order = 'name';
+                                                    $data=Category::model()->findAll($criteria);
                                                     foreach ($data as $key => $value) {
                                                         $parent=Category::model()->find('id=:id',array(':id'=>$value->cat_parent));
                                                         print ('<div class="k-type">');

@@ -33,17 +33,20 @@ class CategoryController extends AdminController
 		{
 			if (empty($model->cat_parent))
 				$model->cat_parent=0;
-			$model->alias=$_POST['Category']['alias'];
+			$model->attributes=$_POST['Category'];
 			$model->save();
-			foreach ($_POST['attr'] as $key => $value) {
-				if ($value!="")
-				{
+			if (!empty($_POST['attr']))
+			{
+				foreach ($_POST['attr'] as $key => $value) {
+					if ($value!="")
+					{
 
-					$attr=CategoryAttrs::model()->findByPk($key);
-					empty($attr) ? $attr=new CategoryAttrs: false;
-					$attr->name=$_POST['attr'][$key];
-					$attr->category_id=$model->id;
-					$attr->save();
+						$attr=CategoryAttrs::model()->findByPk($key);
+						empty($attr) ? $attr=new CategoryAttrs: false;
+						$attr->name=$_POST['attr'][$key];
+						$attr->category_id=$model->id;
+						$attr->save();
+					}
 				}
 			}
 			$this->redirect(array('list'));
