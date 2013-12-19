@@ -35,6 +35,7 @@ class CategoryController extends AdminController
 				$model->cat_parent=0;
 			$model->attributes=$_POST['Category'];
 			$model->alias=$_POST['Category']['alias'];
+			empty($model->cat_parent) ? $model->cat_parent=0 : false;
 			$model->save();
 			if (!empty($_POST['attr']))
 			{
