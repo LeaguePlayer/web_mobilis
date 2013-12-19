@@ -149,7 +149,10 @@
                                                         $parent=Category::model()->find('id=:id',array(':id'=>$value->cat_parent));
                                                         print ('<div class="k-type">');
                                                         print('<h5><a href="/category/view/'.$parent->alias.'.html?alias='.$_GET['alias'].'&id='.$value->id.'">'.$value->name.'</a></h5>');
-                                                        $items=Goods::model()->findAll('cat_id=:id',array(':id'=>$value->id));
+                                                        $crit = new CDbCriteria;
+                                                        $crit->compare('cat_id', $value->id);
+                                                        $crit->order = 'name';
+                                                        $items=Goods::model()->findAll($crit);
                                                         print('<ul>');
                                                         foreach ($items as $key_r => $value_r) {
                                                             $path='/goods/view/'.$value_r->name.'.html?alias='.$_GET['alias'].'&id='.$value_r->id;
