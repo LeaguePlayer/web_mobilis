@@ -8,7 +8,11 @@ $this->breadcrumbs=array(
 <div class="kitchens">
 	<?
 		$images=$model->getGallery()->galleryPhotos;
+		$criteria = new CDbCriteria;
+        $criteria->compare('goods_id', $model->id);
+        $criteria->order = 'id';
 		$attr=GoodsAttrValues::model()->findAll('goods_id=:id',array(':id'=>$model->id));
+
 		if (!empty($images)){
 			print('<div class="kitchen">');
 			print('<p >Наименование: '.$model->name);
