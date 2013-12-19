@@ -12,6 +12,7 @@ framework
 /gallery
 *~
 /index.php
+protected/config/main.php
 protected/yiic.php
 protected/cron.php
 /upload
