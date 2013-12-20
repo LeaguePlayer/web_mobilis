@@ -22,11 +22,11 @@
     $cs->registerScriptFile($this->getAssetsUrl().'/js/script.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.tools.min.js', CClientScript::POS_END);
     $cs->registerCssFile($this->getAssetsUrl().'/css/gallery.css');
-    $cs->registerCssFile($this->getAssetsUrl().'/fancybox/jquery.fancybox.css');
-    $cs->registerCssFile($this->getAssetsUrl().'/fancybox/helpers/jquery.fancybox-thumbs.css');
+    $cs->registerCssFile($this->getAssetsUrl().'/css/fancybox/jquery.fancybox.css');
+    $cs->registerCssFile($this->getAssetsUrl().'/css/fancybox/jquery.fancybox-thumbs.css');
     $cs->registerScriptFile($this->getAssetsUrl().'/js/jCarouselLite.js', CClientScript::POS_END);
-    $cs->registerScriptFile($this->getAssetsUrl().'/fancybox/jquery.fancybox.js', CClientScript::POS_END);
-    $cs->registerScriptFile($this->getAssetsUrl().'/fancybox/helpers/jquery.fancybox-thumbs.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox-thumbs.js', CClientScript::POS_END);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
