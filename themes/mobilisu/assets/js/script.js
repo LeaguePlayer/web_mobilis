@@ -4,7 +4,12 @@ $(document).ready(function(){
         btnPrev: ".rightside",
         visible:1,
     });
-    $(document).ready(function() {
-		$(".thumbs").fancybox();
-	});
+    	$('.thumbs a').fancybox({
+			helpers	: {
+				thumbs	: {
+					width	: 50,
+					height	: 50
+				}
+			}
+		});
 })

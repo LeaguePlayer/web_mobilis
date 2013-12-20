@@ -31,8 +31,6 @@ class Category extends EActiveRecord
             array('id, name, cat_parent, wswg_body, status, sort, create_time, update_time', 'safe', 'on'=>'search'),
         );
     }
-
-
     public function relations()
     {
         return array(
