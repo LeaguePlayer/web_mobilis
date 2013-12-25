@@ -70,7 +70,7 @@ class Goods extends EActiveRecord
 						'adaptiveResize' => array(90, 90),
 					),
 					'medium' => array(
-						'resize' => array(600, 500),
+						'resize' => array(1000, 1000),
 					),
                     'cat_list_large' => array(
                         'resize' => array(323, 216),
@@ -84,8 +84,6 @@ class Goods extends EActiveRecord
 			),
         ));
     }
-
-
     public function search()
     {
         $criteria=new CDbCriteria;
@@ -104,16 +102,12 @@ class Goods extends EActiveRecord
             'criteria'=>$criteria,
         ));
     }
-
     public static function model($className=__CLASS__)
     {
         return parent::model($className);
     }
-
     public function translition()
     {
         return 'Товары';
     }
-
-
 }

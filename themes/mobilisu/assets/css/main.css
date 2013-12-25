@@ -261,7 +261,7 @@ body {
   
   #footer .credits {
     /*background: transparent url(site4all_logo.gif) right top no-repeat;*/
-    background: transparent url(../img/site4all_logo.png) right top no-repeat;
+    background: transparent url(../img/amobile.png) right top no-repeat;
     /*color: #95958b;*/
     color: #4D4D45;
     font-size: 10px;
@@ -269,8 +269,8 @@ body {
     /*float: right;*/
     display: block;
     padding-top: 2px;
-    padding-right: 60px;
-    padding-left:20px;
+    padding-right: 90px;
+    padding-left:0px;
     width: 170px;
     margin-bottom: 5px;
   
