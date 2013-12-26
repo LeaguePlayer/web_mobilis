@@ -118,7 +118,7 @@ return array(
                 'gii'=>'gii',
                 ''=>'category/index',
                 'category/<alias:[a-z-_0-9]+.html>'=>'category/view',
-                'goods/<alias:[a-z-_а-я\s0-9]+.html>'=>'goods/view',
+                'goods/<alias:[A-Za-z-_А-Яа-я\s0-9]+.html>'=>'goods/view',
                 'admin'=>'admin/start/index',
                 'pages/<alias:[a-z-]+.html>'=>'pages/view',
                 'MobiliShare/<alias:[a-z-]+.html>'=>'MobiliShare/view/',
