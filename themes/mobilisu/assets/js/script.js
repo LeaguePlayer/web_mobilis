@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	if($('.carusel').find('li').length==0)
+	if($('.carusel').find('li').length==1)
 	{
 		$('.rightside').css('display','none');
 		$('.leftside').css('display','none');
