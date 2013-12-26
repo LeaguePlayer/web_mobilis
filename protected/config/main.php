@@ -116,7 +116,7 @@ return array(
             'urlFormat'=>'path',
             'rules'=>array(
                 'gii'=>'gii',
-                '/'=>'category/index',
+                ''=>'category/index',
                 'category/<alias:[a-z-_0-9]+.html>'=>'category/view',
                 'goods/<alias:[a-z-_а-я\s0-9]+.html>'=>'goods/view',
                 'admin'=>'admin/start/index',

@@ -135,10 +135,16 @@
                                     <div class="news-item first">
                                         <div class="clearfix">
                                             <?
-
                                                 if ($this->id=="category" || $this->id=="goods")
                                                 {
-                                                    $model=Category::model()->find('alias=:id',array(':id'=>substr($_GET['alias'], 0,-5)));
+                                                    $alias=substr($_GET['alias'],0,-5);
+                                                    if ($this->id=="goods")
+                                                    {
+                                                        $model=Goods::model()->find('name=:id',array(':id'=>$alias));
+                                                        $model=Category::model()->find('id=:id',array(':id'=>$model->cat_id));
+                                                        $alias=$model->alias;
+                                                    }
+                                                    $model=Category::model()->find('alias=:id',array(':id'=>$alias));
                                                     $criteria = new CDbCriteria;
                                                     if ($model->cat_parent!=0)
                                                         {

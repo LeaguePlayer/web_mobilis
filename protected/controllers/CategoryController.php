@@ -50,7 +50,7 @@ class CategoryController extends FrontController
 	}
 	public function actionIndex()
 	{
-		$model=Category::model()->find("alias=:alias",array(':alias'=>"kitchen"));
+		$model=Category::model()->find("alias=:alias",array(':alias'=>"kuhni_v_tjumeni"));
 		$images=MobiliGalariesImages::model()->findAll("element_id=:id",array(':id'=>$model->id));
 		$pages=Category::model()->findAll();
 		$this->render('cat_list',array(
