@@ -141,10 +141,10 @@ return array(
             'offset' => 0,
         ),
         'db'=>array(
-            'connectionString' => 'mysql:host=localhost;dbname=mobilis',
+            'connectionString' => 'mysql:host=localhost;dbname=amobile2_mobilsu',
             'emulatePrepare' => true,
-            'username' => 'root',
-            'password' => '',
+            'username' => 'amobile2_mobilsu',
+            'password' => 'qwe123',
             'charset' => 'utf8',
             'tablePrefix' => 'tbl_',
         ),
