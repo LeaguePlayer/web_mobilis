@@ -24,7 +24,6 @@ class PagesController extends FrontController
 	}
 	public function actionView($alias)
 	{
-		$alias=substr($alias,0,strpos($alias,'.'));
 		$model=Pages::model()->find("alias=:alias",array(':alias'=>$alias));
 		$images=MobiliGalariesImages::model()->findAll("element_id=:id",array(':id'=>$model->id));
 		$categorys=Category::model()->find("name=:name",array(':name'=>$mode->name));
