@@ -34,7 +34,12 @@ body {
     color:#330;
     font-weight: bold;
   }
-
+#under-menu td a:hover{
+    display:block;
+    color:#330;
+    font-weight: bold;
+    text-decoration:none;
+  }
 /* header */
 #header {
   /*background: transparent url(../img/header-logo2.jpg) left top no-repeat;*/
@@ -325,7 +330,6 @@ body {
 .content a {
   color: #436392;
 }
-
 .content ul {
   margin: 10px 0;
 }
@@ -390,7 +394,10 @@ form.styled fieldset label {
 .c-left .k-type {
   margin-bottom: 30px
 }
-
+.c-left .k-type a:hover{
+    margin-bottom: 30px;
+    text-decoration: none;
+}
 .c-left .k-type ul li {
   list-style: none;
   background-image: none;
@@ -401,6 +408,11 @@ form.styled fieldset label {
 .c-left .k-type ul li a {
   color: #101010;
   font-size: 13px;
+}
+.c-left .k-type ul li:hover a {
+  color: #101010;
+  font-size: 13px;
+  text-decoration:none;
 }
 
 .galleries {
@@ -458,3 +470,9 @@ form.styled fieldset label {
   color: #a30000;
   font-weight: bold;
 }
+.rightside:hover{
+  cursor:pointer;
+};
+.leftside:hover{
+  cursor:pointer;
+};
