@@ -24,11 +24,10 @@ class GoodsController extends FrontController
 	}
 	public function actionChange()
 	{
-		
 	}
 	public function actionView($alias)
 	{
-		$model=Goods::model()->find("name=:id",array(':id'=>substr($alias,0,-5)));
+		$model=Goods::model()->find("name=:id",array(':id'=>$alias));
 		$this->render('view',array('model'=>$model));
 	}
 	public function actionIndex()
