@@ -28,7 +28,7 @@ class CategoryController extends FrontController
 	{
 
 		if (isset($_GET['alias'])){
-			$model=Category::model()->find("alias=:id",array(':id'=>substr($alias,0,-5)));
+			$model=Category::model()->find("alias=:id",array(':id'=>$alias));
 			if ($modal->cat_parent==0)
 			$categories=Category::model()->findAll('cat_parent=:id',array(':id'=>$model->id));
 		}

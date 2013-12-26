@@ -9,7 +9,8 @@ $(document).ready(function(){
         btnPrev: ".rightside",
         visible:1,
     });
-    	$('.thumbs a').fancybox({
+    	
+		$('.kitchen').find('a').fancybox({
 			helpers	: {
 				thumbs	: {
 					width	: 50,
