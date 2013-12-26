@@ -31,7 +31,7 @@
 					}
 				print('</div>');
 				}
-				print('<a href="/goods/'.$value->name.'.html/"><p class="kname">'.$value->name.'</p></a>');
+				print('<a href="/goods/'.$value->name.'/"><p class="kname">'.$value->name.'</p></a>');
 				print('<p class="kprice">'.$value->price.'</p></div>');
 			}
 		}
