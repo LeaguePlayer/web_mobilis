@@ -26,7 +26,7 @@ class CategoryController extends FrontController
 	}
 	public function actionView($alias)
 	{
-
+		
 		if (isset($_GET['alias'])){
 			$model=Category::model()->find("alias=:id",array(':id'=>$alias));
 			if ($modal->cat_parent==0)
