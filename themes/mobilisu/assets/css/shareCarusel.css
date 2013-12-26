@@ -25,3 +25,6 @@ background-image: url('../img/arrows.png');
 	overflow: hidden;
 
 }
+.leftside, .rightside:hover{
+	cursor: pointer;
+}
