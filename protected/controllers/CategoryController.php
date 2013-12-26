@@ -4,6 +4,7 @@ class CategoryController extends FrontController
 {
 	public $layout='//layouts/simple';
 	public $Catalogs;
+	// public $defaultAction='view';
 	
 	public function filters()
 	{
@@ -25,10 +26,10 @@ class CategoryController extends FrontController
 	}
 	public function actionView($alias)
 	{
-		!isset($_GET['id']) ? 
-		$model=Category::model()->find("id=:id",array(':id'=>$alias)) :
-		$model=Category::model()->find("id=:id",array(':id'=>$_GET['id']));
-		$categories=Category::model()->findAll('cat_parent=:id',array(':id'=>$model->id));
+		if (isset($_GET['alias'])){
+			$model=Category::model()->find("alias=:id",array(':id'=>substr($alias,0,-5)));
+			$categories=Category::model()->findAll('cat_parent=:id',array(':id'=>$model->id));
+		}
 		if (!empty($categories))
 		{
 			$goods=array();
@@ -49,7 +50,7 @@ class CategoryController extends FrontController
 	}
 	public function actionIndex()
 	{
-		$model=Category::model()->find("alias=:alias",array(':alias'=>"kitchen"));
+		$model=Category::model()->find("alias=:alias",array(':alias'=>"kuhni_v_tjumeni"));
 		$images=MobiliGalariesImages::model()->findAll("element_id=:id",array(':id'=>$model->id));
 		$pages=Category::model()->findAll();
 		$this->render('cat_list',array(

@@ -105,11 +105,11 @@
                                     for ($j=0; $j <$iCol ; $j++) { 
                                         if (isset($data[$counter]))
                                         {
-                                            if ($_GET['alias']!=$data[$counter]->id)
+                                            if ($_GET['alias']!=$data[$counter]->alias.'.html')
                                             {
-                                                $links.='<a href="/category/view/'.$data[$counter]->alias.'.html?alias='.$data[$counter]->id.'">'.$data[$counter]->name.'</a>';
+                                                $links.='<a href="/category/'.$data[$counter]->alias.'.html">'.$data[$counter]->name.'</a>';
                                             } else {
-                                                $links.='<a style="font-size: large;color: #ca0901;" href="/category/view/'.$data[$counter]->alias.'.html?alias='.$data[$counter]->id.'">'.$data[$counter]->name.'</a>';
+                                                $links.='<a style="font-size: large;color: #ca0901;" href="/category/'.$data[$counter]->alias.'.html">'.$data[$counter]->name.'</a>';
                                             }
                                             $counter++;
                                         }
@@ -120,13 +120,6 @@
                                     $result='';
                                 }
                             ?>
-                            <!-- <td style="width: 25%;" valign="top"><a style="font-size: large;color: #ca0901;" href="kitchen.html">Кухни</a> <a href="spalni.html">Спальни</a> <a href="kid.html">Детская мебель</a> <a href="soft.html">Мягкая мебель</a> <a href="kabinet.html">Кабинеты</a> <a href="gostin.html">Гостиные</a></td>
-                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td style="width: 25%;" valign="top"><a href="stolgrup.html">Столовые группы</a> <a href="tv.html">Мебель для TV Hi-Fi</a> <a href="prihoj.html">Прихожие</a> <a href="korpus.html">Корпусная мебель</a> <a href="office.html">Офисная мебель</a> <a href="stolstul.html">Столы, стулья</a></td>
-                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td style="width: 25%;" valign="top"><a href="biblio.html">Библиотеки</a> <a href="vann.html">Мебель для ванных комнат</a> <a href="predmet.html">Отдельные предметы</a> <a href="svet.html">Свет</a><a href="biblio.html"></a> <a href="accessories.html">Аксессуары</a> <a href="bar.html">Мебель для баров, кафе, ресторанов</a></td>
-                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td style="width: 25%;" valign="top"><a href="hotel.html">Гостиничная мебель</a> <a href="panels.html">Декоративные панели-буазери</a> <a href="billiard.html">Мебель для бильярдной</a> <a href="door.html">Двери</a><a href="sale.html">Матрасы</a></td> -->
                         </tr>
                     </tbody>
                 </table>
@@ -142,24 +135,37 @@
                                     <div class="news-item first">
                                         <div class="clearfix">
                                             <?
-                                                if (isset($_GET['alias']) && is_numeric($_GET['alias']))
+                                                if ($this->id=="category" || $this->id=="goods")
                                                 {
-                                                    $id=$_GET['alias'];
+                                                    $alias=substr($_GET['alias'],0,-5);
+                                                    if ($this->id=="goods")
+                                                    {
+                                                        $model=Goods::model()->find('name=:id',array(':id'=>$alias));
+                                                        $model=Category::model()->find('id=:id',array(':id'=>$model->cat_id));
+                                                        $alias=$model->alias;
+                                                    }
+                                                    $model=Category::model()->find('alias=:id',array(':id'=>$alias));
                                                     $criteria = new CDbCriteria;
-                                                    $criteria->compare('cat_parent', $id);
+                                                    if ($model->cat_parent!=0)
+                                                        {
+                                                            $model=$model->find('id=:id',array(':id'=>$model->cat_parent));
+                                                            $alias=$model->alias;
+                                                        } else $alias=substr($_GET['alias'],0,-5);
+                                                    $criteria->compare('alias', $alias);
                                                     $criteria->order = 'name';
-                                                    $data=Category::model()->findAll($criteria);
+                                                    $data=Category::model()->find($criteria); 
+                                                    $data=Category::model()->findAll('cat_parent=:id',array(':id'=>$data->id));  
                                                     foreach ($data as $key => $value) {
                                                         $parent=Category::model()->find('id=:id',array(':id'=>$value->cat_parent));
                                                         print ('<div class="k-type">');
-                                                        print('<h5><a href="/category/view/'.$parent->alias.'.html?alias='.$_GET['alias'].'&id='.$value->id.'">'.$value->name.'</a></h5>');
+                                                        print('<h5><a href="/category/'.$value->alias.'.html">'.$value->name.'</a></h5>');
                                                         $crit = new CDbCriteria;
                                                         $crit->compare('cat_id', $value->id);
                                                         $crit->order = 'name';
                                                         $items=Goods::model()->findAll($crit);
                                                         print('<ul>');
                                                         foreach ($items as $key_r => $value_r) {
-                                                            $path='/goods/view/'.$value_r->name.'.html?alias='.$_GET['alias'].'&id='.$value_r->id;
+                                                            $path='/goods/'.$value_r->name.'.html';
                                                             print('<li><a href="'.$path.'">'.$value_r->name.'</a></li>');
                                                         }
                                                         print('</ul></div>');

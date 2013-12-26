@@ -3,16 +3,13 @@
 class GoodsController extends FrontController
 {
 	public $layout='//layouts/simple';
-
-	
+	public $defaultAction='view';
 	public function filters()
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
 		);
 	}
-
-	
 	public function accessRules()
 	{
 		return array(
@@ -25,9 +22,13 @@ class GoodsController extends FrontController
 			),
 		);
 	}
-	public function actionView($id)
+	public function actionChange()
 	{
-		$model=Goods::model()->findByPk($id) ;
+		
+	}
+	public function actionView($alias)
+	{
+		$model=Goods::model()->find("name=:id",array(':id'=>substr($alias,0,-5)));
 		$this->render('view',array('model'=>$model));
 	}
 	public function actionIndex()
