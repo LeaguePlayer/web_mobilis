@@ -17,11 +17,12 @@ $this->breadcrumbs=array(
 			print('<div class="kitchen">');
 			print('<p >Наименование: '.$model->name);
 			print ('</p>');
-			print('<div class="view"><img style="width=323;height=216;	" src="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'cat_list_large.'.$images[0]['ext'].'" >');
+			print('<div class="view"><a href="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'medium.'.$images[0]['ext'].'" rel="1"><img style="width=323;height=216;	" src="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'cat_list_large.'.$images[0]['ext'].'" >');
 				print('</div><div class="thumbs">');
 			foreach($images as $key=>$img)
 			{
-				print('<a rel="1" href="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_large.'.$img['ext'].'"><img src="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_small.'.$img['ext'].'" ></a>');
+				if ($key!=0)
+				print('<a rel="1" href="/'.$img['galleryDir'].'/'.$img['rank'].'medium.'.$img['ext'].'"><img src="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_small.'.$img['ext'].'" ></a>');
 			}
 			print('</div></div>');
 			}?>
