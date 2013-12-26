@@ -438,7 +438,7 @@ form.styled fieldset label {
 }
 
 .kitchens .kitchen .thumbs {
-  text-align: center;
+  text-align: left;
   overflow:hidden;
   height:30px;
 }
