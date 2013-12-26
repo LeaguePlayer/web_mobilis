@@ -202,7 +202,7 @@
                 </div>
                 <div class="c-right">
                     <div class="inner">
-                        <a href="http://site4all.ru/" class="credits" target="_blank">Разработка и продвижение сайтов Тюмень</a>
+                        <a href="http://amobile-studio.ru/" class="credits" target="_blank">Разработка и продвижение сайтов Тюмень</a>
                         <div class="counter">
                         </div>
                     </div>
