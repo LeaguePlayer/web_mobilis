@@ -470,12 +470,6 @@ form.styled fieldset label {
   color: #a30000;
   font-weight: bold;
 }
-.rightside:hover{
-  cursor:pointer;
-};
-.leftside:hover{
-  cursor:pointer;
-};
 .self a {
   width:100px !important;
 }
