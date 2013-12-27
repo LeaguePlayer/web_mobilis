@@ -2,7 +2,6 @@
 /config/
 Capfile
 #---
-
 framework
 /protected/config/main.php
 /protected/config/console.php
