@@ -2,19 +2,32 @@
 /* @var $this MobiliNewsController */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->breadcrumbs=array(
-	'Mobili News',
-);
-
 $this->menu=array(
 	array('label'=>'Create MobiliNews', 'url'=>array('create')),
 	array('label'=>'Manage MobiliNews', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Mobili News</h1>
+<h1>Новости1</h1>
+<div>
+<?
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+	foreach($dataProvider as $key=>$value)
+	{?>
+		<div class="text">
+	<h2>Новости</h2>
+	<?
+	foreach ($dataProvider as $key=>$value)
+	{?>
+	<div class="data">
+		<div><?$value->date;?></div>
+		<div class="title">
+			<?='<a href="/mobiliNews/view/'.$value->id.'">'.$value->name.'</a>';?>
+		</div>
+		<div><?$value->announce;?></div>
+	</div>
+	<?}?>
+</div>
+	}
+?>
+</div>

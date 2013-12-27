@@ -16,7 +16,7 @@
     * @property string $subscribe_sent
     * @property string $element_id
 */
-class MobiliNews extends EActiveRecord
+class MobiliNews extends CActiveRecord
 {
     public function tableName()
     {
@@ -94,7 +94,7 @@ class MobiliNews extends EActiveRecord
 		$criteria->compare('meta_description',$this->meta_description,true);
 		$criteria->compare('subscribe_sent',$this->subscribe_sent,true);
 		$criteria->compare('element_id',$this->element_id,true);
-        $criteria->order = 'sort';
+        //$criteria->order = 'sort';
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,

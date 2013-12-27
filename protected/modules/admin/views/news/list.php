@@ -7,28 +7,37 @@ $this->menu=array(
 <h1>Управление <?php echo $model->translition(); ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'mobili-news-grid',
+	'id'=>'news-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'type'=>TbHtml::GRID_TYPE_HOVER,
-    'afterAjaxUpdate'=>"function() {sortGrid('mobilinews')}",
+    'afterAjaxUpdate'=>"function() {sortGrid('news')}",
     'rowHtmlOptionsExpression'=>'array(
         "id"=>"items[]_".$data->id,
+        
     )',
 	'columns'=>array(
-		'date',
+		'title',
 		array(
 			'header'=>'Фото',
 			'type'=>'raw',
 			'value'=>'TbHtml::imageCircle($data->imgBehaviorImage->getImageUrl("icon"))'
 		),
-		'name',
-		'subscribe_sent',
-		'element_id',
+		'sort',
+		array(
+			'name'=>'create_time',
+			'type'=>'raw',
+			'value'=>'SiteHelper::russianDate($data->create_time).\' в \'.date(\'H:i\', $data->create_time)'
+		),
+		array(
+			'name'=>'update_time',
+			'type'=>'raw',
+			'value'=>'SiteHelper::russianDate($data->update_time).\' в \'.date(\'H:i\', $data->update_time)'
+		),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
 	),
 )); ?>
 
-<?php Yii::app()->clientScript->registerScript('sortGrid', 'sortGrid("mobilinews");', CClientScript::POS_END) ;?>
+<?php Yii::app()->clientScript->registerScript('sortGrid', 'sortGrid("news");', CClientScript::POS_END) ;?>
