@@ -60,9 +60,9 @@ body {
 
 #header .front-header{
   position: absolute;
-  right:0;
   width: 740px;
   height: 281px;
+  right:0;
   background: transparent url(../img/header-front-bg.jpg) 0 0 no-repeat;
 }
 
@@ -472,4 +472,11 @@ form.styled fieldset label {
 }
 .self a {
   width:100px !important;
+}
+#logo a{
+width:240px;
+position:absolute;
+left:0px;
+background: none;
+height:282px;
 }

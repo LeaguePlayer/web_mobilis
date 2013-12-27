@@ -48,6 +48,10 @@
     </head>
     <body id="homepage">
         <div id="header">
+            <div id="logo">
+                <a href="/">
+                </a>
+            </div>
             <div class="front-header">
                 <div class="jCarouselLite">
                     <?
