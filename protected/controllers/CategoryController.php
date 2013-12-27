@@ -27,9 +27,7 @@ class CategoryController extends FrontController
 	public function actionView($alias)
 	{
 		$model=Category::model()->find("alias=:id",array(':id'=>$alias));
-		
 		$data = array();
-
 		if($model->childs){
 			foreach ($model->childs as $c) {
 				foreach ($c->goods as $good) {
@@ -41,17 +39,16 @@ class CategoryController extends FrontController
 			}
 			//die();
 		}else
+		{
+			$date=array();
+			$dt = $model->goods;
+			if (!empty($dt))
+			foreach($dt as $key=>$value)
 			{
-				$dt = $model->goods;
-				foreach ($dt as $key => $value) {
-					if ($value->gallery->galleryPhotos)
-					{
-						$data[]=$value;
-					}
-				}
+				if ($value->gallery->galleryPhotos)
+					$data[]=$value;
 			}
-			
-		
+		}
 		$data = new CArrayDataProvider($data, array(
 			'pagination' => array('pageSize' => 5,),
 		));
