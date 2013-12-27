@@ -26,26 +26,57 @@ class CategoryController extends FrontController
 	}
 	public function actionView($alias)
 	{
+		$model=Category::model()->find("alias=:id",array(':id'=>$alias));
 		
-		if (isset($_GET['alias'])){
+		$data = array();
+
+		if($model->childs){
+			foreach ($model->childs as $c) {
+				foreach ($c->goods as $good) {
+					//var_dump((boolean)$good->gallery->galleryPhotos);
+					//echo "<br><br><br>";
+					if($good->gallery->galleryPhotos) $data[] = $good;
+				}
+				
+			}
+			//die();
+		}else
+			{
+				$dt = $model->goods;
+				foreach ($dt as $key => $value) {
+					if ($value->gallery->galleryPhotos)
+					{
+						$data[]=$value;
+					}
+				}
+			}
+			
+		
+		$data = new CArrayDataProvider($data, array(
+			'pagination' => array('pageSize' => 5,),
+		));
+		
+		$this->render('cat_list',array(
+			'model'=>$model,'data'=>$data
+		));		
+		/*if (isset($_GET['alias'])){
 			$model=Category::model()->find("alias=:id",array(':id'=>$alias));
 			if ($modal->cat_parent==0)
 			$categories=Category::model()->findAll('cat_parent=:id',array(':id'=>$model->id));
-		}
+		}	
 		if (!empty($categories))
 		{
 			$goods=array();
+			$criteria=new CDbCriteria;
 			foreach($categories as $key=>$value)
 			{
 				$goods+=Goods::model()->findAll('cat_id=:id',array(':id'=>$value->id));
 			}
 		} else {
-				$goods=Goods::model()->findAll('cat_id=:id',array(':id'=>$model->id));
-				
-			}
-			$this->render('cat_list',array(
-			'model'=>$model,'goods'=>$goods
-			));				
+				$goods=Goods::model()->findAll('cat_id=:id',array(':id'=>$model->id));	
+			}*/
+
+					
 		/*$this->render('cat_list',array(
 			'model'=>$model,
 		));*/
