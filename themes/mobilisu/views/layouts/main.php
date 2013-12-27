@@ -68,22 +68,22 @@
                     <li class="addititonal mail"><a href="mailto:mobilisu_tyumen@mail.ru">&nbsp;</a></li>
                     <li><a href="/">Главная</a></li>
                     <li>
-                        <a href="/pages/about">О компании</a>
+                        <a href="/pages/about/">О компании</a>
                     </li>
                     <li>
                         <a href="/mobiliNews/">Новости</a>
                     </li>
                     <li>
-                        <a href="/pages/fabrics">Фабрики</a>
+                        <a href="/pages/fabrics/">Фабрики</a>
                     </li>
                     <li>
-                        <a href="/pages/adv">Советы по эксплуатации</a>
+                        <a href="/pages/adv/">Советы по эксплуатации</a>
                         <ul>
-                            <li><a href="/pages/contacts">Контакты</a></li>
+                            <li><a href="/pages/contacts/">Контакты</a></li>
                         </ul>
                     </li>
                     <li class="last">
-                        <a href="/pages/vakancy">Вакансии</a>
+                        <a href="/pages/vakancy/">Вакансии</a>
                     </li>
                 </ul>
             </div>
@@ -111,9 +111,9 @@
                                         {
                                             if ($_GET['alias']!=$data[$counter]->alias.'')
                                             {
-                                                $links.='<a href="/category/'.$data[$counter]->alias.'">'.$data[$counter]->name.'</a>';
+                                                $links.='<a href="/'.$data[$counter]->alias.'">'.$data[$counter]->name.'</a>';
                                             } else {
-                                                $links.='<a style="font-size: large;color: #ca0901;" href="/category/'.$data[$counter]->alias.'">'.$data[$counter]->name.'</a>';
+                                                $links.='<a style="font-size: large;color: #ca0901;" href="/'.$data[$counter]->alias.'">'.$data[$counter]->name.'</a>';
                                             }
                                             $counter++;
                                         }
@@ -162,7 +162,7 @@
                                                     foreach ($data as $key => $value) {
                                                         $parent=Category::model()->find('id=:id',array(':id'=>$value->cat_parent));
                                                         print ('<div class="k-type">');
-                                                        print('<h5><a href="/category/'.$value->alias.'">'.$value->name.'</a></h5>');
+                                                        print('<h5><a href="/'.$value->alias.'">'.$value->name.'</a></h5>');
                                                         $crit = new CDbCriteria;
                                                         $crit->compare('cat_id', $value->id);
                                                         $crit->order = 'name';
