@@ -34,6 +34,8 @@ class Category extends EActiveRecord
     public function relations()
     {
         return array(
+            'goods'=>array(self::HAS_MANY,'Goods','cat_id'),
+            'childs'=>array(self::HAS_MANY,'Category','cat_parent'),
         );
     }
 

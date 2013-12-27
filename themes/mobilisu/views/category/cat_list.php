@@ -13,28 +13,50 @@
 ?></div>
 <div class="kitchens">
 	<?
-		$data=$goods;
+	$this->widget('zii.widgets.CListView', array(
+	    'dataProvider'=>$data,
+	    'itemView'=>'kitchen',   // refers to the partial view named '_post'
+	    /*'sortableAttributes'=>array(
+	        'title',
+	        'create_time'=>'Post Time',
+	    ),*/
+	));
+	?>
+	<?
+		/*$data=$goods;
 		if (!empty($data))
 		{
 			foreach ($data as $key_d=>$value)
 			{
-				$images=$data[$key_d]->getGallery()->galleryPhotos;	
-				print('<div class="kitchen"><div class="view">');
-				if($images[0]['rank'])
-				{
-					print('<a href="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'medium.'.$images[0]['ext'].'" rel="'.$key_d.'"><img style="width=323;height=216;	" src="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'cat_list_large.'.$images[0]['ext'].'" ></div><div class="thumbs">');
-					foreach($images as $key=>$img)
-					{
-						if ($key!=0)
-						if (!empty($img['rank'])){
-							print('<a href="/'.$img['galleryDir'].'/'.$img['rank'].'medium.'.$img['ext'].'" rel="'.$key_d.'"><img src="/'.$img['galleryDir'].'/'.$img['rank'].'cat_list_small.'.$img['ext'].'" ></a>');
-						}
-					}
-				print('</div>');
-				}
-				print('<a href="/goods/'.$value->name.'/"><p class="kname">'.$value->name.'</p></a>');
-				print('<p class="kprice">'.$value->price.'</p></div>');
+				$criteria=new CDbCriteria;
+				$criteria->condition='cat_id=:id';
+				$criteria->params=array(':id'=>$value->cat_id);
+				$criteria->order='name DESC';
+				$count=Goods::model()->count($criteria);
+				$result=Goods::model()->findAll($criteria);
+				$dataProvider=new CArrayDataProvider($result);
+				$pages=new CPagination(count($goods));
+				$pages->setPageSize(10);
+				$pages->applyLimit($criteria);
+				$this->widget('zii.widgets.CListView',array(
+					'dataProvider'=>$dataProvider,
+					'itemView'=>'kitchen',
+					'ajaxUpdate'=>'false',
+					'enablePagination'=>'false',
+					'summaryText'=>'Всего '.$count.' записей',
+				));
+				$this->widget('CLinkPager',array(
+					'header'=>'',
+					'frstPageLabel'=>'<<',
+					'prevPageLabel'=>'<',
+					'nextPageLabel'=>'>',
+					'lastPageLabel'=>'>>',
+					'pages'=>$pages,
+				));
+				$dataProvider=new CActiveDataProvider('Post');
+
+
 			}
-		}
+		}*/
 	?>
 </div>
