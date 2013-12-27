@@ -116,11 +116,11 @@ return array(
             'urlFormat'=>'path',
             'rules'=>array(
                 'gii'=>'gii',
+                'admin'=>'admin/start/index',
                 ''=>'category/index',
                 'mobiliNews'=>'mobiliNews/index',
                 '/<alias:[A-Za-z-_А-Яа-я\s0-9]+>'=>'category/view',
                 'goods/<alias:[A-Za-z-_А-Яа-я\s0-9]+>'=>'goods/view',
-                'admin'=>'admin/start/index',
                 'pages/<alias:[a-z-]+>'=>'pages/view',
                 '<controller:\w+>'=>'<controller>/index',
                 '<controller:\w+>/<id:\d+>'=>'<controller>/view',
