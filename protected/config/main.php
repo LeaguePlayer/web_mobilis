@@ -8,7 +8,7 @@
 
 return array(
     'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-    'name'=>'Новый сайт',
+    'name'=>'Mobilisu',
     'defaultController' => 'pages',
     'language' => 'ru',
     'theme'=>'mobilisu',
@@ -117,10 +117,10 @@ return array(
             'rules'=>array(
                 'gii'=>'gii',
                 ''=>'category/index',
-                'category/<alias:[a-z-_0-9]+>'=>'category/view',
+                '/<alias:[A-Za-z-_А-Яа-я\s0-9]+>'=>'category/view',
                 'goods/<alias:[A-Za-z-_А-Яа-я\s0-9]+>'=>'goods/view',
                 'admin'=>'admin/start/index',
-                'pages/<alias:[a-z-]+.>'=>'pages/view',
+                'pages/<alias:[a-z-\/]+>'=>'pages/view',
                 'MobiliShare/<alias:[a-z-]+.>'=>'MobiliShare/view/',
                 '<controller:\w+>'=>'<controller>/index',
                 '<controller:\w+>/<id:\d+>'=>'<controller>/view',

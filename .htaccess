@@ -3,5 +3,11 @@ RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)\?*$ index.php/$1 [L,QSA]
-RedirectPermanent http://www.mobilisu.ru/ http://mobilisu.amobile2.tmweb.ru/
+
+Redirect 301 /kitchen /category/kuhni_v_tjumeni
+Redirect 301 /fabrik /pages/fabrik
+Redirect 301 /about /pages/about
+Redirect 301 /kitchen /category/kuhni_v_tjumeni 
+Redirect 301 /vakancy /pages/vakancy
+
 AddDefaultCharset UTF-8
