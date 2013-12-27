@@ -1,6 +1,6 @@
 <?php
 
-class MobiliNewsController extends FrontController
+class NewsController extends FrontController
 {
 	public $layout='//layouts/simple';
 
@@ -29,20 +29,16 @@ class MobiliNewsController extends FrontController
 	
 	public function actionView($id)
 	{
-		
-		$model=MobiliNews::model()->find($criteria);
 		$this->render('view',array(
-			'model'=>$model,
+			'model'=>$this->loadModel('News', $id),
 		));
 	}
 
 	
 	public function actionIndex()
 	{
-		$criteria=new CDbCriteria;
-		$criteria->order='date desc';
-		$dataProvider=MobiliNews::model()->findAll($criteria);
-		$this->render('news_list',array(
+		$dataProvider=new CActiveDataProvider('News');
+		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}

@@ -71,7 +71,7 @@
                         <a href="/pages/about">О компании</a>
                     </li>
                     <li>
-                        <a href="/pages/news">Новости</a>
+                        <a href="/mobiliNews/">Новости</a>
                     </li>
                     <li>
                         <a href="/pages/fabrics">Фабрики</a>

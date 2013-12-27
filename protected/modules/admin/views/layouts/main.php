@@ -34,6 +34,10 @@
 						array('label'=>'Создать', 'url'=>"/admin/MobiliShare/create"),
 						array('label'=>'Список', 'url'=>"/admin/MobiliShare/list"),
 					)),
+				array('label'=>'Новости', 'url'=>'/admin/MobiliNews','items' => array(
+						array('label'=>'Создать', 'url'=>"/admin/MobiliNews/create"),
+						array('label'=>'Список', 'url'=>"/admin/MobiliNews/list"),
+					)),
 			);
 		?>
 		<?php $this->widget('bootstrap.widgets.TbNavbar', array(
