@@ -30,7 +30,6 @@ class MobiliShare extends CActiveRecord
         );
     }
 
-
     public function relations()
     {
         return array(
