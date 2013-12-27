@@ -3,8 +3,5 @@ RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)\?*$ index.php/$1 [L,QSA]
-Redirect 301 /pages/new/ /pages
-Redirect 301 /services/cosmo /services/estetic_kosmetology/face_babor/
-Redirect 301 /services/makeup /services/Make-up/
-Redirect 301 /services/spa /services/massage/
+RedirectPermanent http://www.mobilisu.ru/ http://mobilisu.amobile2.tmweb.ru/
 AddDefaultCharset UTF-8
