@@ -39,6 +39,7 @@ class MobiliNewsController extends FrontController
 	
 	public function actionIndex()
 	{
+		
 		$criteria=new CDbCriteria;
 		$criteria->order='date desc';
 		$dataProvider=MobiliNews::model()->findAll($criteria);
