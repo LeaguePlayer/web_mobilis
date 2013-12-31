@@ -13,15 +13,17 @@
 ?></div>
 <div class="kitchens">
 	<?
-	if (!empty($data))
-	$this->widget('zii.widgets.CListView', array(
-	    'dataProvider'=>$data,
-	    'itemView'=>'kitchen',   // refers to the partial view named '_post'
-	    /*'sortableAttributes'=>array(
-	        'title',
-	        'create_time'=>'Post Time',
-	    ),*/
-	));
+	if (isset($data) && $data->getData()){
+		$this->widget('zii.widgets.CListView', array(
+		    'dataProvider'=>$data,
+		    'itemView'=>'kitchen',   // refers to the partial view named '_post'
+		    'summaryText' => ''
+		    /*'sortableAttributes'=>array(
+		        'title',
+		        'create_time'=>'Post Time',
+		    ),*/
+		));
+	}
 	?>
 	<?
 		/*$data=$goods;

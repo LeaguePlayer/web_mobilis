@@ -18,14 +18,12 @@
 				<?
 					foreach($attrs as $key=>$value)
 					{
-						print('<li>'.CHtml::TextField('attr['.$value->id.']',$value->name).'<a class="del_btn" href="#" rel="'.$value->id.'" ></a></li>');
+						print('<li>'.CHtml::TextField('attr['.$value->id.']',$value->name).'<a class="del_btn" href="#" data-cat="'.$model->id.'" data-attr="'.$value->id.'" ></a></li>');
 					}
 				?>
 			
 		</ul>	
-		<?} else 
-
-		?>
+		<?}?>
 	</div>
 	<div class='control-group'>
 		<?php echo CHtml::activeLabelEx($model, 'wswg_body'); ?>

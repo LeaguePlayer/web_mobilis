@@ -55,9 +55,14 @@ class CategoryController extends AdminController
 		}
 		$this->render('update',array('model'=>$model,'attrs'=>$attrs));
 	}
-	public function actionAttrDelete($id)
+
+	public function actionAttrDelete()
 	{
-		echo $model=CategoryAttrs::model()->deleteByPk($id);
-		die();
+		if(isset($_POST['attr_id'])){
+			CategoryAttrs::model()->deleteByPk($_POST['attr_id']);
+			GoodsAttrValues::model()->find('attr_id=:a_id', array(':a_id' => $_POST['attr_id']))->delete();
+		}
+
+		Yii::app()->end();
 	}
 }

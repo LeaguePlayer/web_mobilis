@@ -38,6 +38,9 @@ class Goods extends EActiveRecord
     public function relations()
     {
         return array(
+            'category' => array(self::BELONGS_TO, 'Category', 'cat_id'),
+            'attrs' => array(self::HAS_MANY, 'GoodsAttrValues', 'goods_id'),
+            'good_gallery'=> array(self::BELONGS_TO, 'Gallery', 'gllr_gallery_id')
         );
     }
 
@@ -62,7 +65,7 @@ class Goods extends EActiveRecord
     public function behaviors()
     {
         return CMap::mergeArray(parent::behaviors(), array(
-        			'galleryBehaviorGallery_id' => array(
+        	'galleryBehaviorGallery_id' => array(
 				'class' => 'appext.imagesgallery.GalleryBehavior',
 				'idAttribute' => 'gllr_gallery_id',
 				'versions' => array(
@@ -109,5 +112,14 @@ class Goods extends EActiveRecord
     public function translition()
     {
         return 'Товары';
+    }
+
+    public function onlyWithImages(){
+        $criteria = new CDbCriteria;
+        $criteria->with=array(
+            'good_gallery',
+        );
+        $this->getDbCriteria()->mergeWith($criteria);
+        return $this;
     }
 }

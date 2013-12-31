@@ -121,7 +121,7 @@ return array(
                 'mobiliNews'=>'mobiliNews/index',
                 '/<alias:[A-Za-z-_А-Яа-я\s0-9]+>'=>'category/view',
                 'goods/<alias:[A-Za-z-_А-Яа-я\s0-9]+>'=>'goods/view',
-                'pages/<alias:[a-z-]+>'=>'pages/view',
+                'pages/<alias:[A-Za-z-_\s]+>'=>'pages/view',
                 '<controller:\w+>'=>'<controller>/index',
                 '<controller:\w+>/<id:\d+>'=>'<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',

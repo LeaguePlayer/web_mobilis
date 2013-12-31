@@ -13,16 +13,14 @@ $(document).ready(function (){
 
   $('.attrs').on('click','ul li a',function(){
     $this=$(this);
-    if ($this.attr('rel')!=null)
-    {
     $.ajax({
-      url: "/admin/category/AttrDelete/?id="+$(this).attr('rel'),
+      url: "/admin/category/AttrDelete",
       type:"POST",
+      data:{cat_id: $(this).data('cat'), attr_id: $(this).data('attr')},
       success:function(data)
       {
       }
-      });
-    }
+    });
       $this.closest('li').slideUp(200, function() {
           $(this).remove();
         });

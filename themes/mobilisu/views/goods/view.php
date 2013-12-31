@@ -15,9 +15,9 @@ $this->breadcrumbs=array(
 
 		if (!empty($images)){
 			print('<div class="kitchen">');
-			print('<p >Наименование: '.$model->name);
-			print ('</p>');
-			print('<div class="view"><a href="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'medium.'.$images[0]['ext'].'" rel="1"><img style="width=323;height=216;	" src="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'cat_list_large.'.$images[0]['ext'].'" >');
+			// print('<p >Наименование: '.$model->name);
+			// print ('</p>');
+			print('<div class="view"><a href="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'medium.'.$images[0]['ext'].'" rel="1"><img style="width=323;height=216;	" src="/'.$images[0]['galleryDir'].'/'.$images[0]['rank'].'cat_list_large.'.$images[0]['ext'].'" ></a>');
 				print('</div><div class="thumbs">');
 			foreach($images as $key=>$img)
 			{
@@ -27,7 +27,7 @@ $this->breadcrumbs=array(
 			print('</div></div>');
 			}?>
 			<div class="attrs">
-				<p><br>
+				<p>
 				<?
 					print('Характеристики:<br>');
 					foreach($attr as $key=>$value)
@@ -39,4 +39,8 @@ $this->breadcrumbs=array(
 			</p>
 			</div>
 			<p class="kprice">Цена: <?=$model->price;?></p>
+			<div style="clear: both;"></div>
+			<div class="desc">
+				<?=$model->wswg_desc?>
+			</div>
 </div>

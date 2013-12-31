@@ -35,7 +35,6 @@ class CategoryController extends FrontController
 					//echo "<br><br><br>";
 					if($good->gallery->galleryPhotos) $data[] = $good;
 				}
-				
 			}
 			//die();
 		}else
@@ -50,11 +49,11 @@ class CategoryController extends FrontController
 			}
 		}
 		$data = new CArrayDataProvider($data, array(
-			'pagination' => array('pageSize' => 5,),
+			'pagination' => array('pageSize' => 5),
 		));
 		
 		$this->render('cat_list',array(
-			'model'=>$model,'data'=>$data
+			'model'=>$model, 'data'=>$data
 		));		
 		/*if (isset($_GET['alias'])){
 			$model=Category::model()->find("alias=:id",array(':id'=>$alias));

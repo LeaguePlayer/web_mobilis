@@ -53,13 +53,7 @@
                 </a>
             </div>
             <div class="front-header">
-                <div class="jCarouselLite">
-                    <?
-                    $this->Widget("application.components.CaruselWidget.CaruselWidget",array());
-                    ?>
-                </div>
-                <div class="rightside"></div>
-                <div class="leftside"></div>
+                <? $this->Widget("application.components.CaruselWidget.CaruselWidget",array());?>
             </div>
         </div>
         <div id="menu-1">
@@ -76,6 +70,7 @@
                     <li>
                         <a href="/pages/fabrics/">Фабрики</a>
                     </li>
+                    <li><a href="/pages/nashi_raboti">Наши работы</a></li>
                     <li>
                         <a href="/pages/adv/">Советы по эксплуатации</a>
                         <ul>
@@ -105,19 +100,20 @@
                                 foreach ($data as $key => $value) {
                                 }
                                     for ($i=0; $i <4; $i++) { 
-                                    $result='<td style="width: 25%;" valign="top">';
-                                    for ($j=0; $j <$iCol ; $j++) { 
-                                        if (isset($data[$counter]))
-                                        {
-                                            if ($_GET['alias']!=$data[$counter]->alias.'')
+                                        $result='<td style="width: 25%;" valign="top">';
+                                        for ($j=0; $j <$iCol ; $j++) {
+
+                                            if (isset($data[$counter]))
                                             {
-                                                $links.='<a href="/'.$data[$counter]->alias.'">'.$data[$counter]->name.'</a>';
-                                            } else {
-                                                $links.='<a style="font-size: large;color: #ca0901;" href="/'.$data[$counter]->alias.'">'.$data[$counter]->name.'</a>';
+                                                if ($_GET['alias']!=$data[$counter]->alias.'')
+                                                {
+                                                    $links.='<a href="/'.$data[$counter]->alias.'">'.$data[$counter]->name.'</a>';
+                                                } else {
+                                                    $links.='<a style="font-size: large;color: #ca0901;" href="/'.$data[$counter]->alias.'">'.$data[$counter]->name.'</a>';
+                                                }
+                                                $counter++;
                                             }
-                                            $counter++;
                                         }
-                                    }
                                     $result.=$links.'</td>';
                                     print($result);
                                     $links='';
@@ -158,19 +154,22 @@
                                                     $criteria->compare('alias', $alias);
                                                     $criteria->order = 'name';
                                                     $data=Category::model()->find($criteria); 
-                                                    $data=Category::model()->findAll('cat_parent=:id',array(':id'=>$data->id));  
+                                                    $data=Category::model()->findAll('cat_parent=:id',array(':id'=>$data->id)); 
                                                     foreach ($data as $key => $value) {
+                                                        if(!$value->goods) continue;
                                                         $parent=Category::model()->find('id=:id',array(':id'=>$value->cat_parent));
                                                         print ('<div class="k-type">');
                                                         print('<h5><a href="/'.$value->alias.'">'.$value->name.'</a></h5>');
                                                         $crit = new CDbCriteria;
                                                         $crit->compare('cat_id', $value->id);
-                                                        $crit->order = 'name';
-                                                        $items=Goods::model()->findAll($crit);
+                                                        $crit->order = 't.name';
+                                                        $items=Goods::model()->onlyWithImages()->findAll($crit);
                                                         print('<ul>');
                                                         foreach ($items as $key_r => $value_r) {
-                                                            $path='/goods/'.urldecode($value_r->name);
-                                                            print('<li><a href="'.$path.'">'.$value_r->name.'</a></li>');
+                                                            if($value_r->gallery->galleryPhotos){
+                                                                $path='/goods/'.urldecode($value_r->name);
+                                                                print('<li><a href="'.$path.'">'.$value_r->name.'</a></li>');
+                                                            }
                                                         }
                                                         print('</ul></div>');
                                                     }

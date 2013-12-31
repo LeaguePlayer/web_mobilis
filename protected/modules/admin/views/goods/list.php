@@ -19,7 +19,11 @@ $this->menu=array(
 	'columns'=>array(
 		'name',
 		'gllr_gallery_id',
-		'cat_id',
+		array(
+			'name'=>'cat_id',
+			'type'=>'raw',
+			'value'=>'$data->category->name'
+		),
 		array(
 			'name'=>'status',
 			'type'=>'raw',

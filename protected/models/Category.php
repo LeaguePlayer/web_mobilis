@@ -36,6 +36,7 @@ class Category extends EActiveRecord
         return array(
             'goods'=>array(self::HAS_MANY,'Goods','cat_id'),
             'childs'=>array(self::HAS_MANY,'Category','cat_parent'),
+            'attrs' =>array(self::HAS_MANY,'CategoryAttrs','category_id')
         );
     }
 

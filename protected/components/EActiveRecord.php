@@ -189,7 +189,7 @@ class EActiveRecord extends CActiveRecord
 
     public function beforeDelete()
     {
-        if($this->status == self::STATUS_DEFAULT)
+        if(isset($this->status) && $this->status == self::STATUS_DEFAULT)
         {
             $this->status = self::STATUS_REMOVED;
             $this->save(false, array('status'));
