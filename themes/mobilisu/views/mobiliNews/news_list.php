@@ -1,4 +1,28 @@
-<div class="text">
+<h1>Новости</h1>
+
+<div class="news-list">
+	<?
+	$this->widget('zii.widgets.CListView', array(
+	    'dataProvider'=>$dataProvider,
+	    'itemView'=>'_news',   // refers to the partial view named '_post'
+	    'summaryText' => '',
+	    'pagerCssClass' => 'pagination',
+	    'pager' => array(
+            'prevPageLabel' => '',
+            'firstPageLabel' => '',
+            'nextPageLabel' => '',
+            'lastPageLabel' => '',
+            'header' => '',
+            'cssFile' => false,
+        ),
+	    // 'sortableAttributes'=>array(
+	    //     'title',
+	    //     'create_time'=>'Post Time',
+	    // ),
+	));
+	?>
+</div>
+<?/*<div class="text">
 	<h2>Новости</h2>
 	<?
 	foreach ($dataProvider as $key=>$value)
@@ -18,4 +42,4 @@
 		}
 	}
 	?>
-</div>
+</div>*/?>

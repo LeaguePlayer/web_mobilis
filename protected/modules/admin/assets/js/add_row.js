@@ -9,7 +9,8 @@ $(document).ready(function (){
     		$('.attrs').append(data);
   		}
     });
-  })
+  });
+  $('#Goods_cat_id').change();
 
   $('.attrs').on('click','ul li a',function(){
     $this=$(this);

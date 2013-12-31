@@ -116,9 +116,16 @@ class Goods extends EActiveRecord
 
     public function onlyWithImages(){
         $criteria = new CDbCriteria;
-        $criteria->with=array(
-            'good_gallery',
-        );
+        $criteria->distinct = true;
+        // $criteria->with=array(
+        //     'good_gallery',
+        //     // 'gallery_photo'
+        // );
+        // $t = $this->getDbCriteria();
+        $criteria->join = 'INNER JOIN gallery ON gallery.id = t.gllr_gallery_id ';
+        $criteria->join .= 'INNER JOIN gallery_photo ON gallery_photo.gallery_id = gallery.id';
+        // $criteria->addCondition('good_gallery.id = :g_id');
+        // $criteria->params[':g_id'] => 
         $this->getDbCriteria()->mergeWith($criteria);
         return $this;
     }

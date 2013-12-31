@@ -2,7 +2,7 @@
 
 class MobiliNewsController extends FrontController
 {
-	public $layout='//layouts/simple';
+	public $layout='//layouts/news_layout';
 
 	
 	public function filters()
@@ -29,8 +29,7 @@ class MobiliNewsController extends FrontController
 	
 	public function actionView($id)
 	{
-		
-		$model=MobiliNews::model()->find($criteria);
+		$model=MobiliNews::model()->findByPk($id);
 		$this->render('view',array(
 			'model'=>$model,
 		));
@@ -42,7 +41,11 @@ class MobiliNewsController extends FrontController
 		
 		$criteria=new CDbCriteria;
 		$criteria->order='date desc';
-		$dataProvider=MobiliNews::model()->findAll($criteria);
+		$dataProvider=new CActiveDataProvider('MobiliNews', array(
+			'criteria' => $criteria
+		));
+		// $dataProvider=MobiliNews::model()->findAll($criteria);
+
 		$this->render('news_list',array(
 			'dataProvider'=>$dataProvider,
 		));

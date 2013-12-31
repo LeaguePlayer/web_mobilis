@@ -72,8 +72,11 @@ class MobiliNews extends CActiveRecord
 						'centeredpreview' => array(90, 90),
 					),
 					'small' => array(
-						'resize' => array(200, 180),
-					)
+                        'resize' => array(200, 180),
+                    ),
+                    'middle' => array(
+                        'resize' => array(300, 270),
+                    )
 				),
 			),
         ));

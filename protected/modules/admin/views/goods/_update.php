@@ -15,6 +15,7 @@
 	<?php echo $form->dropDownListControlGroup($model, 'status', Goods::getStatusAliases(), array('class'=>'span8', 'displaySize'=>1)); ?>
 	
 	<div class="attrs">
+		<label for="">Характеристики</label>
 		<table>
 			
 				<?
