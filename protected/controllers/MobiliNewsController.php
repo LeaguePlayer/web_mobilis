@@ -30,21 +30,20 @@ class MobiliNewsController extends FrontController
 	public function actionView($id)
 	{
 		$model=MobiliNews::model()->findByPk($id);
+		$this->title=$model->name;
 		$this->render('view',array(
 			'model'=>$model,
 		));
 	}
-
-	
 	public function actionIndex()
 	{
-		
 		$criteria=new CDbCriteria;
 		$criteria->order='date desc';
 		$dataProvider=new CActiveDataProvider('MobiliNews', array(
 			'criteria' => $criteria
 		));
 		// $dataProvider=MobiliNews::model()->findAll($criteria);
+		$this->title='Новости';
 
 		$this->render('news_list',array(
 			'dataProvider'=>$dataProvider,

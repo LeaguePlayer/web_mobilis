@@ -24,16 +24,16 @@ class MobiliShareController extends FrontController
 			),
 		);
 	}
-
-	
 	public function actionView($id)
 	{
 		$model=MobiliShare::model()->find('id=:id',array(':id'=>$id));
+		$this->title=$model->name;
 		$this->render('view',array('model'=>$model));
 	}
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('MobiliShare');
+		$this->title='Акции';
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

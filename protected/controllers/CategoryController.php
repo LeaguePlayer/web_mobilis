@@ -27,6 +27,7 @@ class CategoryController extends FrontController
 	public function actionView($alias)
 	{
 		$model=Category::model()->find("alias=:id",array(':id'=>$alias));
+		$this->title=$model->name;
 		$data = array();
 		if($model->childs){
 			foreach ($model->childs as $c) {
@@ -80,6 +81,7 @@ class CategoryController extends FrontController
 	public function actionIndex()
 	{
 		$model=Category::model()->find("alias=:alias",array(':alias'=>"kuhni_v_tjumeni"));
+		$this->title=$model->name;
 		$images=MobiliGalariesImages::model()->findAll("element_id=:id",array(':id'=>$model->id));
 		$pages=Category::model()->findAll();
 		$this->render('cat_list',array(

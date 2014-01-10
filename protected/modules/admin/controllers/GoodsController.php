@@ -79,11 +79,9 @@ class GoodsController extends AdminController
 							$attr->attr_id=$key;
 							$attr->attr_value=$value;
 							$attr->save();
-							$attrsId[]=$attr->id;
+							
 					}
-					$attrsId = implode(', ', $attrsId);
-					print_r($attrsId);die();
-    				GoodsAttrValues::model()->deleteAll('category_id not IN (' . $memberIds . ')');
+					
 				}
 				$this->redirect(array('list'));
 			}

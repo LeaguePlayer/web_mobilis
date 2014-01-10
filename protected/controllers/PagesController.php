@@ -4,6 +4,8 @@ class PagesController extends FrontController
 {
 	public $array=array();
 	public $layout='//layouts/simple';
+	public $Description;
+	public $Keywords;
 	public function filters()
 	{
 		return array(
@@ -24,9 +26,24 @@ class PagesController extends FrontController
 	}
 	public function actionView($alias)
 	{
+		Yii::app()->clientScript->registerMetaTag('This is an example', 'Description');
+		Yii::app()->clientScript->registerMetaTag('This is an example', '3333');
 		$model=Pages::model()->find("alias=:alias",array(':alias'=>$alias));
 		$images=MobiliGalariesImages::model()->findAll("element_id=:id",array(':id'=>$model->id));
 		$categorys=Category::model()->find("name=:name",array(':name'=>$mode->name));
+		
+		$this->Keywords=$model->meta_keywords;
+		$this->Description=$model->meta_description;
+		$this->Description=$model->meta_description;
+		if ($model->meta_title)
+			$this->title=$model->meta_title; 
+		else
+			$this->title=$model->name;
+		// if ($model->meta_description)
+		// 	$this->description=$model->meta_description; 
+		// else
+		// 	$this->description=$model->name;
+		
 		if (isset($images))
 		$this->render('view',array(
 			'model'=>$model,
@@ -38,8 +55,13 @@ class PagesController extends FrontController
 	public function actionIndex()
 	{
 		$model=Pages::model()->find("alias=:alias",array(':alias'=>"kitchen"));
+		$this->Description=$mode->meta_description;
 		$images=MobiliGalariesImages::model()->findAll("element_id=:id",array(':id'=>$model->id));
-		$pages=Pages::model()->findAll();
+		//$pages=Pages::model()->findAll();
+		if ($model->meta_title)
+			$this->title=$model->meta_title; 
+		else
+			$this->title=$model->name;
 		$this->render('view',array(
 			'model'=>$model,
 			'images'=>$images,
