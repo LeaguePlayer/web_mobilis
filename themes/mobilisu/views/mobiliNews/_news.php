@@ -3,7 +3,7 @@
 	<div class="clearfix">
 		<div class="image">
 			<?$img=$data->getImageUrl('small'); if (isset($img)) {?>
-			<a href="http://www.mobilisu.ru/news/item/30">
+			<a href="<?=$this->createUrl('view', array('id' => $data->id))?>">
 				<img src="<?=$data->getImageUrl('small')?>" alt="" title="" />
 			</a>
 			<?}?>
