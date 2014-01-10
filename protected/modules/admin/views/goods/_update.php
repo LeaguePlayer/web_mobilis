@@ -13,15 +13,16 @@
 	<?php echo $form->textFieldControlGroup($model,'price',array('class'=>'span8','maxlength'=>255)); ?>
 <?php echo $form->dropDownList($model,'cat_id',CHtml::listData(Category::model()->findAll(),'id','name'),array('class'=>'span8','options'=>array('selected'=>'1'))); ?>
 	<?php echo $form->dropDownListControlGroup($model, 'status', Goods::getStatusAliases(), array('class'=>'span8', 'displaySize'=>1)); ?>
-	
 	<div class="attrs">
 		<label for="">Характеристики</label>
 		<table>
 			
 				<?
-					foreach ($model->attrs as $key => $value) {
-						$att=CategoryAttrs::model()->findBypk($value->id);
-						print('<tr><td width="150">'.$att->name.'</td><td><input type="text" name="attrs['.$value->id.']" value="'.$value->attr_value.'"></td></tr>');
+				$attrs=CategoryAttrs::model()->findAll('category_id=:id',array(':id'=>$model->cat_id));
+				$values=GoodsAttrValues::model()->findAll('goods_id=:id',array(':id'=>$model->id));
+					foreach ($attrs as $key => $value) {
+						$name=CategoryAttrs::model()->findByPk($value->id)->name;
+						print('<tr><td width="150">'.$name.'</td><td><input type="text" name="attrs['.$values[$key]->id.']" value="'.$values[$key]->attr_value.'"></td></tr>');
 					}
 				?>
 			

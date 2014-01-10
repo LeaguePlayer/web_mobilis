@@ -1,17 +1,23 @@
 $(document).ready(function (){
-
+  action=location.href.indexOf('goods/create')>0;
+  if (action==true) action='create'; else action='update';
 	$('#Goods_cat_id').change(function(){
+    len=document.location.href.length;
+    id=document.location.href.substring(document.location.href.lastIndexOf('/')+1,len);
 		$.ajax({
   			url: '/admin/goods/ajax',
   			method:"GET",
-  			data:{id:$(this).val()},
+  			data:{item:$(this).val(),action:action,id:id},
   			success: function(data) {
-    		$('.attrs').append(data);
+          if (data!='')
+          {
+            $('.attrs').html('<label for="">Характеристики</label>');
+        		$('.attrs').append(data);
+          }
   		}
     });
   });
   $('#Goods_cat_id').change();
-
   $('.attrs').on('click','ul li a',function(){
     $this=$(this);
     $.ajax({

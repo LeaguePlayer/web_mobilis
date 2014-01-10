@@ -48,8 +48,11 @@ class CategoryController extends AdminController
 						$attr->name=$_POST['attr'][$key];
 						$attr->category_id=$model->id;
 						$attr->save();
+						$attrsId[]=$attr->id;
 					}
 				}
+				$attrsId = implode(', ', $attrsId);
+    				GoodsAttrValues::model()->deleteAll('attr_id not IN (' . $attrsId . ')');
 			}
 			$this->redirect(array('list'));
 		}
