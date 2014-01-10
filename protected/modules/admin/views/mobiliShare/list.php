@@ -19,7 +19,11 @@ $this->menu=array(
 			'type'=>'raw',
 			'value'=>'TbHtml::imageCircle($data->imgBehaviorImage->getImageUrl("icon"))'
 		),
-		'hidden',
+		array(
+			'header'=>'Показывать',
+			'type'=>'raw',
+			'value'=>'SiteHelper::BoolToString($data->hidden)',
+			),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),

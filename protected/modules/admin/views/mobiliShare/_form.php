@@ -22,7 +22,7 @@
 		</div>
 		<?php echo $form->error($model, 'img_image'); ?>
 	</div>
-
+	<div>Показать</div>
 	<?php echo $form->checkBox($model,'hidden',array()); ?>
 
 	<div class="form-actions">
