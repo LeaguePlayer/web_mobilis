@@ -10,10 +10,10 @@
                             <div class="news-item first">
                                 <div class="clearfix">
                                     <?
+                                        if (!isset($_GET['alias'])) $_GET['alias']='kuhni_v_tjumeni';
                                         if ($this->id=="category" || $this->id=="goods")
                                         {
-
-                                            $alias=isset($_GET['alias']) ? "kitchen":$_GET['alias'];
+                                            $alias=$_GET['alias'];
                                             if ($this->id=="goods")
                                             {
                                                 $model=Goods::model()->find('name=:id',array(':id'=>$alias));
