@@ -12,7 +12,8 @@
                                     <?
                                         if ($this->id=="category" || $this->id=="goods")
                                         {
-                                            $alias=$_GET['alias'];
+
+                                            $alias=isset($_GET['alias']) ? "kitchen":$_GET['alias'];
                                             if ($this->id=="goods")
                                             {
                                                 $model=Goods::model()->find('name=:id',array(':id'=>$alias));
