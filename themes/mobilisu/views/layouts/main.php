@@ -103,11 +103,14 @@
 
                                             if (isset($data[$counter]))
                                             {
-                                                if ($_GET['alias']!=$data[$counter]->alias.'')
+                                                if (!empty($data[$counter]->wswg_body))
                                                 {
-                                                    $links.='<a href="/'.$data[$counter]->alias.'">'.$data[$counter]->name.'</a>';
-                                                } else {
-                                                    $links.='<a style="font-size: large;color: #ca0901;" href="/'.$data[$counter]->alias.'">'.$data[$counter]->name.'</a>';
+                                                    if ($_GET['alias']!=$data[$counter]->alias.'')
+                                                    {
+                                                        $links.='<a href="/'.$data[$counter]->alias.'">'.$data[$counter]->name.'</a>';
+                                                    } else {
+                                                        $links.='<a style="font-size: large;color: #ca0901;" href="/'.$data[$counter]->alias.'">'.$data[$counter]->name.'</a>';
+                                                    }
                                                 }
                                                 $counter++;
                                             }
