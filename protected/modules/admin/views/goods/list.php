@@ -30,7 +30,6 @@ $this->menu=array(
 			'value'=>'Goods::getStatusAliases($data->status)',
 			'filter'=>Goods::getStatusAliases()
 		),
-		'sort',
 		array(
 			'name'=>'create_time',
 			'type'=>'raw',

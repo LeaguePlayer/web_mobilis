@@ -14,5 +14,6 @@
 				print('</div>');
 				}
 				print('<a href="/goods/'.$data->name.'/"><p class="kname">'.$data->name.'</p></a>');
-				print('<p class="kprice">'.$data->price.'</p></div>');
+				
+				print('<p class="kprice">'.$price=($data->price>0?'Цена:'.$data->price.'руб.':'') .'</p></div>');
 ?>

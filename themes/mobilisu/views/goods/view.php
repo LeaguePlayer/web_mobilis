@@ -32,13 +32,16 @@ $this->breadcrumbs=array(
 					print('Характеристики:<br>');
 					foreach($attr as $key=>$value)
 					{
-						$data=CategoryAttrs::model()->find('id=:id',array(':id'=>$value->id));
-						print($data->name." ".$value->attr_value.'<br>');	
+						if ($value->attr_value)
+						{
+							$data=CategoryAttrs::model()->find('id=:id',array(':id'=>$value->id));
+							print($data->name." ".$value->attr_value.'<br>');	
+						}
 					}
 				?>
 			</p>
 			</div>
-			<p class="kprice">Цена: <?=$model->price;?></p>
+			<p class="kprice"><? if ($model->price>0) print('Цена:'.$model->price.'руб.')?></p>
 			<div style="clear: both;"></div>
 			<div class="desc">
 				<?=$model->wswg_desc?>

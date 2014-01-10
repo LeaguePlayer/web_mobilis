@@ -23,7 +23,6 @@ $this->menu=array(
 			'value'=>'TbHtml::imageCircle($data->imgBehaviorImage->getImageUrl("icon"))'
 		),
 		'name',
-		'subscribe_sent',
 		'element_id',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',

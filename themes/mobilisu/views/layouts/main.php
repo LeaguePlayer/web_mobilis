@@ -33,9 +33,9 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title><?php echo $this->title; ?></title>
-        <meta name="Keywords" content="">
-        <meta name="Description" content="">
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <meta name="Keywords" content="<? echo isset($this->Keywords) ? $this->Keywords: $this->title;?>">
+        <meta name="Description" content="<? echo isset($this->Description) ? $this->Description:$this->title;?>">
+        <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>favicon.ico" type="image/x-icon">
         <!--[if IE]>
         <link rel="stylesheet" href="style/ie.css"  type="text/css" />
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -73,10 +73,8 @@
                     <li><a href="/pages/nashi_raboti">Наши работы</a></li>
                     <li>
                         <a href="/pages/adv/">Советы по эксплуатации</a>
-                        <ul>
-                            <li><a href="/pages/contacts/">Контакты</a></li>
-                        </ul>
                     </li>
+                     <li><a href="/pages/contacts/">Контакты</a></li>
                     <li class="last">
                         <a href="/pages/vakancy/">Вакансии</a>
                     </li>
