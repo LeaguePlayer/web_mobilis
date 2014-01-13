@@ -11,6 +11,9 @@ return array(
     'name'=>'Mobilisu',
     'defaultController' => 'pages',
     'language' => 'ru',
+    'controllerMap' => array(
+        'promo' => 'application.controllers.MobiliShareController'
+    ),
     'theme'=>'mobilisu',
     // preloading 'log' component
     'preload'=>array('log'),
